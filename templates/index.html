@@ -1,0 +1,1230 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>韩都衣舍</title>
+		<link rel="stylesheet" type="text/css" href="/static/css/header.css"/>
+		<script src="/static/js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="/static/js/test.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			$(function(){
+				var userMsg = $.cookie("userMsg");
+				if( userMsg ){
+					
+					userMsg = JSON.parse(userMsg);
+					$('#global_right ul li').remove();
+					$('#global_right ul').append("<li style='width: auto;'>欢迎您，"+ userMsg.user +"<em class='lv lv0'></em></li>");
+					$('#global_right ul').append("<li style='margin-left: 22px;'><a href='index.html' >退出</a></li>");
+					$('#global_right ul').append("<li style='width: 40px;'><a href='cart.html'>购物车</a></li>");
+					
+					//退出
+					$('#global_right ul li:eq(1) a').click(function(){
+						$.cookie("userMsg",null, {expires:0, path:"/"}); //清空cookie
+					})
+				}
+			})
+		</script>
+	</head>
+    <body>
+        <!-- 顶部搜索 -->
+		<link rel="stylesheet" type="text/css" href="css/xf_search.css">
+		<script type="text/javascript">
+			$(function(){
+				$(window).scroll(function(){
+					var currentTop = $(this).scrollTop();
+					if( currentTop>=$('.wrap').offset().top ){
+						$('.xf_search').slideDown();
+					}else{
+						$('.xf_search').slideUp();
+					}
+				})
+			})
+		</script>
+		<div class="xf_search">
+			<img src="{% static  'img/index_img/slogo.png'  %}">
+			<div class="xf_search_s">
+				<input type="text" id="" value="">
+				<button>搜  索</button>
+			</div>
+			<div class="xf_font">没空去韩国？就来韩都衣舍！</div>
+		</div>
+
+
+	<!-- Header -->
+		<script type="text/javascript">
+			$(function(){
+				$('#global_left li:first').click(function(){
+					location.href = "index.html";
+				})
+			})
+		</script>
+		<div id="global_nav">
+			<div id="global_left">
+				<ul>
+					<li style="color: red; font-weight: bold;">返回首页</li>
+					<li>收藏网站</li>
+				</ul>
+			</div>
+			<div id="global_right">
+				<ul>
+					<li style="width: 155px;">您好，{{ email }}欢迎光临韩都衣舍！</li>
+					<li><a href="{% url 'app:login' %}">登录</a></li>
+					<li><a href="{% url 'app:register' %}" style="color: red;">注册</a></li>
+					<li style="width: 40px;"><a href="{% url 'app:cart' %}">购物车</a></li>
+				</ul>
+			</div>
+			<div style="float: left; margin: 6px 4px 0 0; color: #DDDDDD;"> 丨 </div>
+			<div id="list_right">
+				<ul>
+					<li><a href="">在线客服</a></li>
+					<li><a href="">帮助中心</a></li>
+					<li style="width: 73px; cursor: pointer;"><div></div><a href="">网站导航</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		$(function(){
+			$("#list_right ul li").eq(2).hover(function(){
+				$("#webhd").show();
+			},function(){
+				$("#webhd").hide();
+			});
+			$("#webhd").hover(function(){
+				$("#webhd").show();
+			},function(){
+				$("#webhd").hide();
+			});
+		})
+		</script>
+		<div id="webhd" style="display: none;">
+			<div class="hot">
+				<h3>大家都在买Hot</h3>
+				<ul>
+					<li>t恤</li>
+					<li>连衣裙</li>
+					<li>牛仔裤</li>
+					<li>毛衣针织</li>
+					<li>卫衣绒衫</li>
+					<li>休闲套装</li>
+				</ul>
+			</div>
+			<div class="women">
+				<h3>女装Women</h3>
+				<ul>
+					<li>韩风快时尚女装</li>
+					<li>韩风快时尚妈妈装</li>
+					<li>韩风甜美少女装</li>
+					<li>东方复古设计师女装</li>
+					<li>韩风名媛时尚女装</li>
+					<li>欧美浪漫田园风女装</li>
+					<li>韩风大码女装</li>
+					<li>欧美快时尚女装</li>
+				</ul>
+			</div>
+			<div class="AMH">
+				<h3>男装Men</h3>
+				<ul>
+					<li>韩风快时尚男装</li>
+					<li>东风禅意设计师男装</li>
+					<li>欧美街头轻潮男装</li>
+				</ul>
+			</div>
+			<div class="mini">
+				<h3>童装Children</h3>
+				<ul>
+					<li>韩风快时尚童装</li>
+					<li>东风简约设计师童装</li>
+				</ul>
+			</div>
+			<div class="help">
+				<h3>帮助中心Help</h3>
+				<ul>
+					<li>会员制度</li>
+					<li>售后服务</li>
+					<li>购物流程</li>
+					<li>关于发票</li>
+					<li>配送方式</li>
+					<li>韩都招聘</li>
+				</ul>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$(function(){
+				$('.hdtop_logo').click(function(){
+					location.href = "index.html";
+				})
+			})
+		</script>
+		<div id="hdtop_header">
+			<div class="hdtop_logo"></div>
+			<div class="hd_search">
+				<div class="hdi_search">
+					<input type="text" id="" value="">
+					<button>搜   索</button>
+				</div>
+				<div class="hotwords">
+					<ul>
+						<li>韩风童装</li><s> 丨 </s>
+						<li>精选男装</li><s> 丨 </s>
+						<li>简约女装</li><s> 丨 </s>
+						<li>甜美女装</li><s> 丨 </s>
+						<li>时尚妈妈</li><s> 丨 </s>
+						<li>明星同款</li>
+					</ul>
+				</div>
+			</div>
+			<img src="{% static  'img/index_img/ewm.png'  %}">
+		</div>
+
+		<div class="yNavIndex">
+			<div style="width: 100%;height: 12px;">
+				<span style="float: right; font-size: 12px; margin-right: 162px; color: red; font-weight:bold ;">下载APP即送壕礼</span>
+			</div>
+			<div class="yHeader">
+				<div class="pullDTitle">全部商品分类</div>
+				<ul class="yMenuIndex">
+					<li style="width: 134px;">2016秋冬新品</li>
+					<li>会员专享</li>
+					<li>团购批发</li>
+				</ul>
+				<ul class="nav_right">
+					<li style="width: 105px;">会员俱乐部 <img src="{% static  'img/index_img/sjt.png'  %}"></li>
+					<li style="width: 98px;">韩都咨询 <img src="{% static  'img/index_img/sjt.png'  %}"></li>
+					<li>招兵买马</li>
+				</ul>
+				<ul class="vip" style="display: none;">
+					<li style="border-bottom: 1px solid #E5E5E5;">韩都真人秀</li>
+					<li>好评有礼</li>
+				</ul>
+				<ul class="hd_news" style="display: none;">
+					<li style="border-bottom: 1px solid #E5E5E5;">韩都设计</li>
+					<li>品牌故事</li>
+				</ul>
+				<script type="text/javascript">
+					$(function(){
+						$(".nav_right li").eq(0).hover(function(){ $(".vip").show(); },function(){ $(".vip").hide(); })
+						$(".vip").hover(function(){ $(".vip").show(); },function(){ $(".vip").hide(); })
+
+						$(".nav_right li").eq(1).hover(function(){ $(".hd_news").show(); },function(){ $(".hd_news").hide(); })
+						$(".hd_news").hover(function(){ $(".hd_news").show(); },function(){ $(".hd_news").hide(); })
+					})
+				</script>
+			</div>
+		</div>
+	<!-- 商品分类  轮播图 -->
+	<link rel="stylesheet" type="text/css" href="css/lunbo_goods.css">
+	<script src="js/lunbo.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 轮播图  -->
+	<div id="focus">
+		<ul id="bigpic"></ul>
+        <ul id="smallpic"></ul>
+    </div>
+    <!-- 商品分类 -->
+    <script src="js/goods_classify.js" type="text/javascript" charset="utf-8"></script>
+        <div id="goods_classify">
+        	<ul>
+        		<li>
+        			<h4><img src="{% static  'img/index_img/tb1.png'  %}">  全部商品分类</h4>
+        			<a href="">本周新品</a>
+        			<a href="">按价格</a>
+        			<a href="">按销量</a>
+        			<span></span>
+        		</li>
+        		<li>
+        			<h4><img src="{% static  'img/index_img/tb2.png'  %}">  精选推荐</h4>
+        			<a href="" class="red">连衣裙</a>
+        			<a href="">潮流爆款</a>
+        			<a href="">秋季风格</a>
+        			<span></span>
+        		</li>
+        		<li>
+        			<h4><img src="{% static  'img/index_img/tb3.png'  %}">  潮流女装</h4>
+        			<a href="" class="red">T恤</a>
+        			<a href="">连衣裙</a>
+        			<a href="">牛仔裤</a>
+        			<span></span>
+        		</li>
+        		<li>
+        			<h4><img src="{% static  'img/index_img/tb4.png'  %}">  精品男装</h4>
+        			<a href="" class="red">T恤</a>
+        			<a href="">衬衫</a>
+        			<a href="">裤装</a>
+        			<span></span>
+        		</li>
+        		<li>
+        			<h4><img src="{% static  'img/index_img/tb5.png'  %}">  可爱童装</h4>
+        			<a href="">童装新品</a>
+        			<a href="" class="red">裙装</a>
+        			<a href="">毛衣/针织衫</a>
+        			<span></span>
+        		</li>
+        		<li>
+        			<h4><img src="{% static  'img/index_img/tb6.png'  %}">  时尚妈妈</h4>
+        			<a href="">T恤</a>
+        			<a href="">连衣裙</a>
+        			<a href="">裤装</a>
+        			<a href="">外套</a>
+        			<span></span>
+        		</li>
+        		<li>
+        			<h4><img src="{% static  'img/index_img/tb7.png'  %}">  鞋包配饰</h4>
+        			<a href="" class="red">鞋子</a>
+        			<a href="">鞋包</a>
+        			<span></span>
+        		</li>
+        	</ul>
+
+        	<div class="itemtc_h" style="display: none;">
+        		<div class="itemtcul_h">
+        			<div style="width: 70px; height: 423px; margin-left: 37px;">
+        				<img src="{% static  'img/index_img/nana.png'  %}">
+        				<img src="{% static  'img/index_img/hstyle.png'  %}">
+        				<img src="{% static  'img/index_img/forqueen.png'  %}">
+        				<img src="{% static  'img/index_img/soneed.png'  %}">
+        				<img src="{% static  'img/index_img/hanyunyixiang.png'  %}">
+        				<img src="{% static  'img/index_img/ytxz.png'  %}">
+        				<img src="{% static  'img/index_img/nibbuns.png'  %}">
+        				<img src="{% static  'img/index_img/cx.png'  %}">
+        				<img src="{% static  'img/index_img/bly.png'  %}">
+        			</div>
+	        		<div style="width: 70px; height: 423px;">
+	        			<img src="{% static  'img/index_img/laola.png'  %}">
+	        			<img src="{% static  'img/index_img/sulv.png'  %}">
+	        			<img src="{% static  'img/index_img/zc.png'  %}">
+	        			<img src="{% static  'img/index_img/amh.png'  %}">
+	        			<img src="{% static  'img/index_img/anma.png'  %}">
+	        			<img src="{% static  'img/index_img/zg.png'  %}">
+	        			<img src="{% static  'img/index_img/mini.png'  %}">
+	        			<img src="{% static  'img/index_img/hp.png'  %}">
+	        			<img src="{% static  'img/index_img/dx1.png'  %}">
+	        		</div>
+	        		<div><img src="{% static  'img/index_img/guoya.png'  %}"></div>
+        		</div>
+        	</div>
+
+        	<div id="handpick" style="display: none;">
+        		<div class="">
+        			<h4>特惠精选</h4>
+        			<a href="" style="margin-left: 14px;">清仓特惠</a><s> 丨 </s>
+        			<a href="">爆款特惠</a>
+        		</div>
+        		<div class="">
+        			<h4>潮流新品</h4>
+        			<a href="" class="red" style="margin-left: 14px;">2016秋装新品</a><s> 丨 </s>
+        			<a href="">原创新品</a><s> 丨 </s>
+        			<a href="">T恤新品</a><s> 丨 </s>
+        			<a href="">连衣裙新品</a><s> 丨 </s>
+        			<a href="">牛仔新品</a>
+        		</div>
+        		<div style="height: 61px;" class="">
+        			<h4>类目新品</h4>
+        			<a href="" class="red" style="margin-left: 14px;">连衣裙</a><s> 丨 </s>
+        			<a href="">牛仔裤</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">卫衣</a><s> 丨 </s>
+        			<a class="red" href="">T恤</a><s> 丨 </s>
+        			<a href="">休闲裤</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">套装</a><s> 丨 </s>
+        			<a href="">短裤</a>
+        		</div>
+        		<div class="">
+        			<h4>爆款集锦</h4>
+        			<a class="red" href="" style="margin-left: 14px;">2016秋装爆款</a><s> 丨 </s>
+        			<a href="">女装爆款</a><s> 丨 </s>
+        			<a href="">男装爆款</a><s> 丨 </s>
+        			<a href="">童装爆款</a><s> 丨 </s>
+        			<a href="">妈妈装爆款</a>
+        		</div>
+        		<div style="height: 61px;" class="">
+        			<h4>百变风格</h4>
+        			<a class="red" href="" style="margin-left: 14px;">潮流韩范</a><s> 丨 </s>
+        			<a href="">纯色</a><s> 丨 </s>
+        			<a href="">优雅OL</a><s> 丨 </s>
+        			<a href="">印花</a><s> 丨 </s>
+        			<a href="">甜美清新</a><s> 丨 </s>
+        			<a href="">条纹</a><s> 丨 </s>
+        			<a href="">度假出游</a><s> 丨 </s>
+        			<a href="">拼接</a><s> 丨 </s>
+        			<a href="">复古</a><s> 丨 </s>
+        			<a href="">字母</a><s> 丨 </s>
+        			<a href="">修身</a><s> 丨 </s>
+        			<a href="">几何</a><s> 丨 </s>
+        			<a href="">宽松</a><s> 丨 </s>
+        			<a href="">不规则</a>
+        		</div>
+        		<div style="height: 61px;" class="">
+        			<h4>更多推荐</h4>
+        			<a href="" style="margin-left: 14px;">设计师推荐</a><s> 丨 </s>
+        			<a href="">大码-范奎恩</a><s> 丨 </s>
+        			<a href="">劳拉的誓约</a><s> 丨 </s>
+        			<a href="">极简主义-白鹿语</a><s> 丨 </s>
+        			<a class="red" href="">轻时尚简约-哲初</a>
+        		</div>
+        	</div>
+
+        	<div class="women_dress" style="display: none;">
+        		<div style="height: 61px;" class="">
+        			<h4>韩风时尚HSTYLE</h4>
+        			<a class="red" href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">套装</a><s> 丨 </s>
+        			<a class="red" href="">连衣裙</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a class="red" href="">牛仔裤</a><s> 丨 </s>
+        			<a href="">休闲裤</a><s> 丨 </s>
+        			<a href="">短裤</a><s> 丨 </s>
+        			<a href="">蕾丝衫/雪纺衫</a>
+        		</div>
+        		<div style="height: 80px;" class="">
+        			<h4>时尚名媛SONEED</h4>
+        			<a href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a class="red" href="">衬衫</a><s> 丨 </s>
+        			<a href="">蕾丝衫/雪纺衫</a><s> 丨 </s>
+        			<a href="">毛针织衫</a><s> 丨 </s>
+        			<a href="">卫衣/绒衫</a><s> 丨 </s>
+        			<a href="">西装</a><s> 丨 </s>
+        			<a href="">套装</a><s> 丨 </s>
+        			<a href="">风衣</a><s> 丨 </s>
+        			<a href="">背心吊带</a><s> 丨 </s>
+        			<a href="">毛呢外套</a><s> 丨 </s>
+        			<a href="">连衣裙</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">牛仔裤</a><s> 丨 </s>
+        			<a href="">休闲裤</a><s> 丨 </s>
+        			<a href="">短裤</a>
+        		</div>
+        		<div style="height: 80px;" class="">
+        			<h4>欧美风尚 尼班诗</h4>
+        			<a href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">西装</a><s> 丨 </s>
+        			<a href="">蕾丝衫/雪纺衫</a><s> 丨 </s>
+        			<a href="">卫衣/绒衫</a><s> 丨 </s>
+        			<a href="">毛针织衫</a><s> 丨 </s>
+        			<a href="">风衣</a><s> 丨 </s>
+        			<a href="">毛呢外套</a><s> 丨 </s>
+        			<a href="">短裤</a><s> 丨 </s>
+        			<a class="red" href="">牛仔裤</a><s> 丨 </s>
+        			<a href="">休闲裤</a><s> 丨 </s>
+        			<a href="">打底裤</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">连衣裙</a>
+        		</div>
+        		<div style="height: 80px;" class="">
+        			<h4>甜美少女NanaDay</h4>
+        			<a href="" style="margin-left: 14px;">毛针织衫</a><s> 丨 </s>
+        			<a class="red" href="">T恤</a><s> 丨 </s>
+        			<a href="">短外套</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">棉衣棉服</a><s> 丨 </s>
+        			<a href="">卫衣/绒衣</a><s> 丨 </s>
+        			<a href="">套装</a><s> 丨 </s>
+        			<a href="">连衣裙</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">毛呢外套</a><s> 丨 </s>
+        			<a href="">羽绒服</a><s> 丨 </s>
+        			<a href="">蕾丝雪纺</a><s> 丨 </s>
+        			<a href="">裤装</a>
+        		</div>
+        		<div style="border: none;">
+        			<img src="{% static  'img/index_img/hstyle.png'  %}">
+        			<img src="{% static  'img/index_img/sulv.png'  %}">
+        			<img src="{% static  'img/index_img/soneed.png'  %}">
+        			<img src="{% static  'img/index_img/nibbuns.png'  %}">
+        			<img src="{% static  'img/index_img/forqueen.png'  %}">
+        			<img src="{% static  'img/index_img/nana.png'  %}">
+        			<img src="{% static  'img/index_img/ytxz.png'  %}">
+        			<img src="{% static  'img/index_img/laola.png'  %}">
+        			<img src="{% static  'img/index_img/bly.png'  %}">
+        			<img src="{% static  'img/index_img/zc.png'  %}">
+        			<img src="{% static  'img/index_img/cx.png'  %}">
+        		</div>
+        	</div>
+
+        	<div class="man_clothing" style="display: none;">
+        		<div style="height: 80px;" class="">
+        			<h4>韩风时尚AMH</h4>
+        			<a class="red" href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a href="">POLO衫</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">毛衣/针织</a><s> 丨 </s>
+        			<a href="">卫衣</a><s> 丨 </s>
+        			<a href="">外套</a><s> 丨 </s>
+        			<a href="">夹克</a><s> 丨 </s>
+        			<a href="">风衣</a><s> 丨 </s>
+        			<a href="">棉衣棉服</a><s> 丨 </s>
+        			<a href="">羽绒服</a><s> 丨 </s>
+        			<a href="">休闲裤</a><s> 丨 </s>
+        			<a href="">牛仔裤</a><s> 丨 </s>
+        			<a href="">腰带</a><s> 丨 </s>
+        			<a href="">男鞋</a><s> 丨 </s>
+        			<a href="">帽子</a><s> 丨 </s>
+        			<a href="">男包</a>
+        		</div>
+        		<div style="height: 61px;" class="">
+        			<h4>欧美街头 暗码</h4>
+        			<a href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a href="">PLLO衫</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">毛衣/针织衫</a><s> 丨 </s>
+        			<a href="">卫衣</a><s> 丨 </s>
+        			<a href="">夹克</a><s> 丨 </s>
+        			<a class="red" href="">休闲裤</a><s> 丨 </s>
+        			<a href="">牛仔裤</a>
+        		</div>
+        		<div class="">
+        			<h4>东方禅意 自古</h4>
+        			<a href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a class="red" href="">衬衫</a><s> 丨 </s>
+        			<a href="">针织衫</a><s> 丨 </s>
+        			<a href="">风衣</a><s> 丨 </s>
+        			<a href="">休闲裤</a>
+        		</div>
+        		<div style="border: none;">
+        			<img src="{% static  'img/index_img/amh.png'  %}">
+        			<img src="{% static  'img/index_img/anma.png'  %}">
+        			<img src="{% static  'img/index_img/zg.png'  %}">
+        		</div>
+        	</div>
+
+        	<div class="kids" style="display: none;">
+        		<div style="height: 80px;" class="">
+        			<h4>韩风时尚Minizaru</h4>
+        			<a class="red" href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">卫衣</a><s> 丨 </s>
+        			<a href="">套装</a><s> 丨 </s>
+        			<a href="">毛衣/针织衫</a><s> 丨 </s>
+        			<a href="">毛呢/外套</a><s> 丨 </s>
+        			<a href="">羽绒服饰</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">连衣裙</a><s> 丨 </s>
+        			<a href="">休闲裤</a><s> 丨 </s>
+        			<a href="">牛仔裤</a><s> 丨 </s>
+        			<a href="">打底裤</a><s> 丨 </s>
+        			<a href="">短裤</a><s> 丨 </s>
+        			<a href="">马甲</a>
+
+        		</div>
+        		<div style="height: 61px;" class="">
+        			<h4>欧美风尚HoneyPig</h4>
+        			<a href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">卫衣</a><s> 丨 </s>
+        			<a href="">毛衣/针织衫</a><s> 丨 </s>
+        			<a href="">外套/夹克/大衣</a><s> 丨 </s>
+        			<a href="">套装</a><s> 丨 </s>
+        			<a href="">连衣裙</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">短裤</a><s> 丨 </s>
+        			<a class="red" href="">休闲裤</a><s> 丨 </s>
+        			<a href="">打底裤</a><s> 丨 </s>
+        			<a href="">牛仔裤</a>
+        		</div>
+        		<div style="height: 61px;" class="">
+        			<h4>东方禅意 自古</h4>
+        			<a class="red" href="" style="margin-left: 14px;">T恤/吊带衫</a><s> 丨 </s>
+        			<a href="">毛衣/针织衫</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">卫衣/绒衫</a><s> 丨 </s>
+        			<a href="">外套</a><s> 丨 </s>
+        			<a href="">裤子</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">连衣裙</a><s> 丨 </s>
+        			<a href="">棉衣/棉服</a>
+        		</div>
+        		<div style="border: none;">
+        			<img src="{% static  'img/index_img/mini.png'  %}">
+        			<img src="{% static  'img/index_img/hp.png'  %}">
+        			<img src="{% static  'img/index_img/guoya.png'  %}">
+        			<img src="{% static  'img/index_img/dx1.png'  %}">
+        		</div>
+        	</div>
+        	<div class="mama" style="display: none;">
+        		<div style="height: 61px;" class="">
+        			<h4>妈妈装</h4>
+        			<a class="red" href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">外套</a><s> 丨 </s>
+        			<a href="">毛衣/针织</a><s> 丨 </s>
+        			<a href="">风衣</a><s> 丨 </s>
+        			<a href="">棉衣/棉服</a><s> 丨 </s>
+        			<a href="">马甲</a><s> 丨 </s>
+        			<a href="">裤子</a><s> 丨 </s>
+        			<a href="">连衣裙</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">套装</a>
+        		</div>
+        		<div style="border: none;">
+        			<img src="{% static  'img/index_img/hanyunyixiang.png'  %}">
+        		</div>
+        	</div>
+        </div>
+
+        <!-- 公告 -->
+        <div class="gonggao" style="width: 100%; height: 120px; background: url(img/index_img/11.jpg) no-repeat -245px 0px; cursor: pointer;"></div>
+	    <!-- 互联网品牌生态运营集团 -->
+	    <link rel="stylesheet" type="text/css" href="css/bloc.css">
+
+	    <div class="wrap">
+	    	<div class="hd_zpp">
+	    		<div class="hd_zppleft">
+	    			<h1></h1>
+	    			<a style="float: right; font-size: 12px; color: #666666; margin-top: 9px;" href="">换一批</a>
+	    			<img style=" cursor: pointer; float: right; margin-top: 8px;" src="{% static  'img/index_img/bt.png'  %}">
+
+	    			<ul style="display: block;">
+	    				<li><a href="" style="background: url(img/index_img/NA.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/NA-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/H.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/H-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/FQ.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/FQ-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/Sn.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/Sn-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/DKN.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/DKN-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/YT.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/YT-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/NBS.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/NBS-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/cx.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/cx-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/BLY.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/BLY-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/LAOLA.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/LAOLA-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/lww.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/lww-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/SL.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/SL-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/zc.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/zc-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/kui.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/kui-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/AMH.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/AMH-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/ANMA.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/ANMA-.jpg) no-repeat;"></span>
+	    				</li>
+	    			</ul>
+
+	    			<ul style="display: none;">
+	    				<li><a href="" style="background: url(img/index_img/ZG.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/ZG-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/3u.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/3u-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/mn.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/mn-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/pig.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/pig-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/hw.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/hw-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/gy.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/gy-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/NA.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/NA-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/H.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/H-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/FQ.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/FQ-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/Sn.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/Sn-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/DKN.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/DKN-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/YT.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/YT-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/NBS.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/NBS-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/cx.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/cx-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/BLY.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/BLY-.jpg) no-repeat;"></span>
+	    				</li>
+	    				<li><a href="" style="background: url(img/index_img/LAOLA.jpg) no-repeat;"></a>
+	    					<span style="background: url(img/index_img/LAOLA-.jpg) no-repeat;"></span>
+	    				</li>
+	    			</ul>
+	    		</div>
+
+	    		<div class="hd_zppright">
+	    			<ul>
+					    <li>韩都动态</li>
+					    <li>明星家族</li>
+					    <li>媒体报道</li>
+					    <li>无穷花开</li>
+					    <div class="bg"></div>
+					</ul>
+					<div class="flower_list">
+						<!-- 1 -->
+						<div class="flower_item" style="display: none;">
+							<div class="one">
+								<h2 style="background: url(img/index_img/230_1.jpg) no-repeat;"><span>韩都衣舍上市获批！成互联网服饰品牌第一</span></h2>
+								<ul>
+									<li>韩都衣舍签约亚洲女神朴信惠</li>
+									<li>签约朴信惠，韩都衣舍将要做什么？</li>
+									<li>中韩首届电商大会召开 韩都衣舍受邀</li>
+								</ul>
+							</div>
+							<div class="one">
+								<h2 style="background: url(img/index_img/12.jpg) no-repeat;"><span>韩风十年  星光十年</span></h2>
+								<ul>
+									<li>韩都衣舍旗下男装AMH摘得双11淘品牌冠军</li>
+									<li>韩都衣舍多级跳 淘品牌到孵化器</li>
+									<li>情人节，韩都老总竟然为数百人戴戒指？</li>
+								</ul>
+							</div>
+						</div>
+						<!-- 2 -->
+						<div class="flower_item" style="display: block;">
+							<div class="two">
+								<h2 style="background: url(img/index_img/qy1.jpg) no-repeat;"></h2>
+								<ul>
+									<li><span>[详细内容]</span>签约三大韩星：韩都衣舍欲书写互联网品牌的中国时尚传奇</li>
+									<li><span>[详细内容]</span>StarVC为韩都衣舍品牌背书</li>
+									<li><span>[详细内容]</span>AMH星势力计划—韩国巨星池昌旭签约发布会</li>
+								</ul>
+							</div>
+						</div>
+						<!-- 3 -->
+						<div class="flower_item" style="display: none;">
+							<div class="one">
+								<h2 style="background: url(img/index_img/xp.jpg) no-repeat;"><span>韩都衣舍:一个线上品牌的衍变</span></h2>
+								<ul>
+									<li>韩都衣舍：阿米巴炸裂</li>
+									<li>亲们 字母印花T恤最"韩范儿"</li>
+									<li>韩都衣舍：走向"设计师孵化平台"</li>
+								</ul>
+							</div>
+							<div class="one">
+								<h2 style="background: url(img/index_img/051.jpg) no-repeat;"><span>韩都衣舍赵迎光：“站在时尚门外的时尚”</span></h2>
+								<ul>
+									<li>赵迎光：把决策力从老板放到员工身上</li>
+									<li>供应链跟不上互联网？看韩都衣舍怎么做</li>
+									<li>"迪葵纳"时尚妈妈装稳居天猫第一</li>
+								</ul>
+							</div>
+						</div>
+						<!-- 4 -->
+						<div class="flower_item" style="display: none;">
+							<div class="two">
+								<h2 style="background: url(img/index_img/1.jpg) no-repeat;"></h2>
+								<ul>
+									<li><span>[详细内容]</span>韩都公益：为汶上县寅寺镇草桥小学学生送礼物</li>
+									<li><span>[详细内容]</span>韩都公益：点亮求学光源 草桥无穷花开</li>
+									<li><span>[详细内容]</span>筑梦留守儿童"公益项目在山东菏泽启动</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+	    		</div>
+
+	    	</div>
+
+	    	<div class="hd_zpp">
+	    		<div class="hd_gg"><img src="{% static  'img/index_img/681.jpg'  %}"></div>
+	    		<div class="hd_shipin"><img src="{% static  'img/index_img/shipin.png'  %}"></div>
+	    	</div>
+	    </div>
+	    <!-- js -->
+	    <script src="js/bloc.js" type="text/javascript" charset="utf-8"></script>
+
+	    <!-- 新品上市 -->
+	    <link rel="stylesheet" type="text/css" href="css/new_arrial.css">
+	    <script src="js/new_arrial_lunbo.js" type="text/javascript" charset="utf-8"></script>
+	    <!-- 轮播 -->
+	    <div class="floor" id="new_arrial" style="margin-top: 20px;">
+	    	<h1><ul class="tab_brand" id="tab_brand"></ul></h1>
+	    	<div class="floor_list" id="floor_list">
+	    		<!-- 1 -->
+		    	<ul class="floor_con" id="floor_con1"></ul>
+		    	<!-- 2 -->
+		    	<ul class="floor_con" id="floor_con2"></ul>
+		    	<!-- 3 -->
+		    	<ul class="floor_con" id="floor_con3"></ul>
+		    	<!-- 4 -->
+		    	<ul class="floor_con" id="floor_con4"></ul>
+		    	<!-- 5 -->
+		    	<ul class="floor_con" id="floor_con5"></ul>
+	    	</div>
+	    </div>
+
+	    <!-- 框架 -->
+	    <!-- 韩风时尚女装 -->
+	    <link rel="stylesheet" type="text/css" href="css/HSTYLE.css">
+	    <script src="js/HSTYLE.js" type="text/javascript" charset="utf-8"></script>
+
+	    <div class="HSTYLE" id="HSTYLE">
+	    	<h1 style=" background: url(img/index_img/web_index.png) no-repeat 0px -74px; "><ul></ul></h1>
+	    	<div class="floor_ganw">
+	    		<div class="nav_bar">
+	    			<div class="s_img"></div>
+	    			<div class="s_cate1"></div>
+	    			<div class="s_cate2"></div>
+	    		</div>
+	    		<div class="fl_img"></div>
+	    		<div class="fl_img2"></div>
+	    		<div class="fr_hot">
+					<h1>热销排行榜</h1>
+					<ul>
+						<li class="rexiao">
+							<h2 style="display: none;"><span class="arrow num_1"></span>2016韩版女装秋装新款</h2>
+							<ul class="hot_con" style="display: block;">
+								<li class="hot_img"><img src="{% static  'img/index_img/1470107429889650198.jpg'  %}"><em class="arrow">1</em></li>
+								<li class="hot_info">
+									<p>2016韩版女装秋装新款</p>
+									<p><em class="new_price"><span class="arrow">￥</span>166.00</em></p>
+									<p><del class="old_price"><span class="arrow">￥</span>298.00</del></p>
+									<p class="sales">已售出<span class="red">791</span>笔</p>
+								</li>
+							</ul>
+						</li>
+						<li class="rexiao">
+							<h2 style="display: inline;"><span class="arrow num_2"></span>2016韩版女秋新印花图</h2>
+							<ul class="hot_con" style="display: none; ">
+			                  	<li class="hot_img "><img src="{% static  'img/index_img/1471001725371621434.jpg'  %}"><em class="arrow ">2</em></li>
+			                  	<li class="hot_info ">
+				                    <p>2016韩版女秋新印花图</p>
+				                    <p><em class="new_price "><span class="arrow ">￥</span>166.00</em></p>
+				                    <p><del class="old_price "><span class="arrow ">￥</span>278.00</del></p>
+				                    <p class="sales ">已售出<span class="red ">788</span>笔</p>
+			                 	</li>
+			                </ul>
+			            </li>
+			            <li class="rexiao">
+			                <h2 style="display: inline; "><span class="arrow num_3 "></span>2016韩版女秋新款修身</h2>
+			                <ul class="hot_con" style="display: none;">
+								<li class="hot_img"><img src="{% static  'img/index_img/1471001808692156893.jpg'  %}"><em class="arrow">3</em></li>
+								<li class="hot_info">
+									<p>2016韩版女秋新款修身</p>
+									<p><em class="new_price"><span class="arrow">￥</span>136.00</em></p>
+									<p><del class="old_price"><span class="arrow">￥</span>268.00</del></p>
+									<p class="sales">已售出<span class="red">787</span>笔</p>
+								</li>
+							</ul>
+						</li>
+						<li class="rexiao">
+							<h2 style="display: inline;"><span class="arrow num_4"></span>2016韩版女装秋装新款</h2>
+							<ul class="hot_con" style="display: none; ">
+			                  	<li class="hot_img "><img src="{% static  'img/index_img/1471001759284172937.jpg'  %}"><em class="arrow">4</em></li>
+			                 	<li class="hot_info ">
+				                    <p>2016韩版女装秋装新款</p>
+				                    <p><em class="new_price "><span class="arrow ">￥</span>168.00</em></p>
+				                    <p><del class="old_price "><span class="arrow ">￥</span>298.00</del></p>
+				                    <p class="sales ">已售出<span class="red ">781</span>笔</p>
+			                  	</li>
+			                </ul>
+			            </li>
+			            <li class="rexiao">
+			                <h2 style="display: inline; "><span class="arrow num_5 "></span>2016秋新条纹衬衫PC</h2>
+			                <ul class="hot_con" style="display: none;">
+								<li class="hot_img"><img src="{% static  'img/index_img/1471001745473995662.jpg'  %}"><em class="arrow">5</em></li>
+								<li class="hot_info">
+									<p>2016秋新条纹衬衫PC</p>
+									<p><em class="new_price"><span class="arrow">￥</span>148.00</em></p>
+									<p><del class="old_price"><span class="arrow">￥</span>268.00</del></p>
+									<p class="sales">已售出<span class="red">781</span>笔</p>
+								</li>
+							</ul>
+						</li>
+						<li class="rexiao">
+							<h2 style="display: inline;"><span class="arrow num_6"></span>2016韩版女秋装新款条</h2>
+							<ul class="hot_con" style="display: none; ">
+				                <li class="hot_img "><img src="{% static  'img/index_img/1471001772394306791.jpg'  %}"><em class="arrow ">6</em></li>
+				                <li class="hot_info ">
+				                    <p>2016韩版女秋装新款条</p>
+				                    <p><em class="new_price "><span class="arrow ">￥</span>179.00</em></p>
+				                    <p><del class="old_price "><span class="arrow ">￥</span>298.00</del></p>
+				                    <p class="sales ">已售出<span class="red ">765</span>笔</p>
+				                </li>
+			                </ul>
+			            </li>
+			            <li class="rexiao">
+			                <h2 style="display: inline; "><span class="arrow num_7 "></span>2016韩版女装秋装新宽</h2>
+			                <ul class="hot_con" style="display: none;">
+								<li class="hot_img"><img src="{% static  'img/index_img/1471001825234349909.jpg'  %}"><em class="arrow">7</em></li>
+								<li class="hot_info">
+									<p>2016韩版女装秋装新宽</p>
+									<p><em class="new_price"><span class="arrow">￥</span>159.00</em></p>
+									<p><del class="old_price"><span class="arrow">￥</span>308.00</del></p>
+									<p class="sales">已售出<span class="red">755</span>笔</p>
+								</li>
+							</ul>
+						</li>
+						<li class="rexiao">
+							<h2 style="display: inline;"><span class="arrow num_8"></span>2016韩版女装秋装新修</h2>
+							<ul class="hot_con" style="display: none; ">
+			                  	<li class="hot_img "><img src="{% static  'img/index_img/1471497826818690336.jpg'  %}"><em class="arrow ">8</em></li>
+				                <li class="hot_info ">
+				                    <p>2016韩版女装秋装新修</p>
+				                    <p><em class="new_price "><span class="arrow ">￥</span>146.00</em></p>
+				                    <p><del class="old_price "><span class="arrow ">￥</span>258.00</del></p>
+				                    <p class="sales ">已售出<span class="red ">740</span>笔</p>
+				                </li>
+			                </ul>
+			            </li>
+			        </ul>
+			    </div>
+	    	</div>
+
+	    	<ul class="HSTYLE_list"></ul>
+	    </div>
+
+	    <!-- 韩风时尚男装 -->
+	    <script src="js/AMH.js" type="text/javascript" charset="utf-8"></script>
+	    <div class="HSTYLE" id="AMH">
+	    	<h1 style=" background: url(img/index_img/web_index.png) no-repeat 0px -104px; "><ul></ul></h1>
+	    	<div class="floor_ganw">
+	    		<div class="nav_bar">
+	    			<div class="s_img"></div>
+	    			<div class="s_cate1"></div>
+	    			<div class="s_cate2"></div>
+	    		</div>
+	    		<div class="fl_img"></div>
+	    		<div class="fl_img2"></div>
+	    	</div>
+
+	    	<ul class="HSTYLE_list"></ul>
+	    </div>
+
+	    <!-- 韩风时尚妈妈装 -->
+	    <script src="js/DKN.js" type="text/javascript" charset="utf-8"></script>
+	    <div class="HSTYLE" id="DKN">
+	    	<h1 style=" background: url(img/index_img/web_index.png) no-repeat 0px -134px; "><ul></ul></h1>
+	    	<div class="floor_ganw">
+	    		<div class="nav_bar">
+	    			<div class="s_img"></div>
+	    			<div class="s_cate1"></div>
+	    			<div class="s_cate2"></div>
+	    		</div>
+	    		<div class="fl_img"></div>
+	    		<div class="fl_img2"></div>
+	    	</div>
+
+	    	<ul class="HSTYLE_list"></ul>
+	    </div>
+
+	    <!-- 韩风甜美少女装 -->
+	    <script src="js/NANA.js" type="text/javascript" charset="utf-8"></script>
+	    <div class="HSTYLE" id="NANA">
+	    	<h1 style=" background: url(img/index_img/web_index.png) no-repeat 0px -167px; "><ul></ul></h1>
+	    	<div class="floor_ganw">
+	    		<div class="nav_bar">
+	    			<div class="s_img"></div>
+	    			<div class="s_cate1"></div>
+	    			<div class="s_cate2"></div>
+	    		</div>
+	    		<div class="fl_img"></div>
+	    		<div class="fl_img2"></div>
+	    	</div>
+
+	    	<ul class="HSTYLE_list"></ul>
+	    </div>
+
+	    <!-- 韩风时尚童装 -->
+	    <script src="js/mini.js" type="text/javascript" charset="utf-8"></script>
+	    <div class="HSTYLE" id="mini">
+	    	<h1 style=" background: url(img/index_img/web_index.png) no-repeat 0px -197px; "><ul></ul></h1>
+	    	<div class="floor_ganw">
+	    		<div class="nav_bar">
+	    			<div class="s_img"></div>
+	    			<div class="s_cate1"></div>
+	    			<div class="s_cate2"></div>
+	    		</div>
+	    		<div class="fl_img"></div>
+	    		<div class="fl_img2"></div>
+	    	</div>
+
+	    	<ul class="HSTYLE_list"></ul>
+	    </div>
+
+	    <!-- 欧美时尚女装 -->
+	    <script src="js/NBS.js" type="text/javascript" charset="utf-8"></script>
+	    <div class="HSTYLE" id="NBS">
+	    	<h1 style=" background: url(img/index_img/web_index.png) no-repeat 0px -259px; "><ul></ul></h1>
+	    	<div class="floor_ganw">
+	    		<div class="nav_bar">
+	    			<div class="s_img"></div>
+	    			<div class="s_cate1"></div>
+	    			<div class="s_cate2"></div>
+	    		</div>
+	    		<div class="fl_img"></div>
+	    		<div class="fl_img2"></div>
+	    	</div>
+
+	    	<ul class="HSTYLE_list"></ul>
+	    </div>
+
+	    <!-- 图片 -->
+	    <img style="margin:35px 0 0 111px; cursor: pointer;" src="{% static  'img/index_img/1469514727508665367.jpg'  %}">
+
+	    <!-- 韩都资讯 -->
+	    <link rel="stylesheet" type="text/css" href="css/hd_zixun.css">
+	    <div class="CRM_floor">
+	    	<div class="CRM_hd"><a href="">更多&gt;</a></div>
+	    	<div class="zxlightbox">
+	    		<img style="width: 350px;" src="{% static  'img/index_img/1469676232889773651.jpg'  %}">
+	    		<p><span>【韩都公益】无穷花开</span><b></b></p>
+	    	</div>
+	    	<div class="hd_newslist">
+	    		<h3>时尚最新鲜</h3>
+	    		<ul class="list_l">
+	    			<li>
+	    				<h4>在韩国首创时尚大赛，韩都衣舍又创...</h4>
+	    				<p>8月12日，韩都衣舍2016韩国时尚设计师大赛成功举办，在到场的200多位重量级嘉宾</p>
+	    			</li>
+	    			<li>
+	    				<h4>韩都衣舍跨界玩转模特大赛牵手瑞丽...</h4>
+	    				<p>在继电商节618狂欢、韩国直播和十周年庆典后，韩都衣舍出现在了瑞丽模特大赛的赛</p>
+	    			</li>
+	    		</ul>
+	    		<ul class="list_r">
+	    			<li>韩都衣舍用行动否定电商平台直播没有内容属性</li>
+	    			<li>韩都衣舍搭手韩国户外第一品牌 打通电</li>
+	    		</ul>
+	    		<img style="position: absolute; top: 36px; right: 0;" src="{% static  'img/index_img/1410508721545137834.jpg'  %}">
+	    	</div>
+	    	<div class="crm_module">
+	    		<img src="{% static  'img/index_img/footer02.png'  %}">
+	    		<div class="dy">
+	    			<input type="text" name="" id="" value="">
+	    			<button></button>
+	    		</div>
+	    	</div>
+	    </div>
+
+	    <!-- footer -->
+	    <link rel="stylesheet" type="text/css" href="css/footer.css">
+	    <div class="footer_info">
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 0px 0px;"></h4>
+	    		<ul>
+	    			<li>用户注册</li>
+	    			<li>购物流程</li>
+	    			<li>网站导航</li>
+	    			<li>帮助中心</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat -2px -34px;"></h4>
+	    		<ul>
+	    			<li>在线支付</li>
+	    			<li>货到付款</li>
+	    			<li>扫码支付</li>
+	    			<li>优惠券支付</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 10px -66px;"></h4>
+	    		<ul>
+	    			<li>配送说明</li>
+	    			<li>运费说明</li>
+	    			<li>验货签收</li>
+	    			<li>货到付款</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 3px -99px;"></h4>
+	    		<ul>
+	    			<li>退换货政策</li>
+	    			<li>退换货流程</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 2px -133px;"></h4>
+	    		<ul>
+	    			<li>会员制度</li>
+	    			<li>会员积分</li>
+	    			<li>好评有礼</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 1px -197px;"></h4>
+	    		<ul>
+	    			<li>品牌故事</li>
+	    			<li>媒体报道</li>
+	    			<li>诚聘英才</li>
+	    			<li>联系我们</li>
+	    		</ul>
+	    	</div>
+	    </div>
+
+	    <img style="margin: 24px 0 0 169px;" src="{% static  'img/index_img/feature1.png'  %}">
+
+	    <div class="footer_black">
+	    	<ul>
+	    		<li>首页</li><s> 丨 </s>
+	    		<li>品牌故事</li><s> 丨 </s>
+	    		<li>诚聘英才</li><s> 丨 </s>
+	    		<li>媒体报道</li><s> 丨 </s>
+	    		<li>联系我们</li><s> 丨 </s>
+	    		<li>网站地图</li><s> 丨 </s>
+	    		<li>友情链接</li>
+	    	</ul>
+	    </div>
+
+	    <div class="copyright">
+	    	<div>
+	    		<img src="{% static  'img/index_img/copyright.gif'  %}">鲁ICP备14003322号-2 © 2006-2015 handu.com All Rights Reserved.
+	    		<img src="{% static  'img/index_img/beiantubiao.png'  %}">鲁公网安备 37010202000113号 山东韩都衣舍电商集团有限公司，禁止非法复制
+	    		<img src="{% static  'img/index_img/pic.gif'  %}">
+	    	</div>
+	    </div>
+
+	    <center>
+	    	<img src="{% static  'img/index_img/zxmbutton02_sy.jpg'  %}">
+	    	<img src="{% static  'img/index_img/zxmbutton05_sy.jpg'  %}">
+	    	<img style="width: 102px; height: 38px;" src="{% static  'img/index_img/cnnic.png'  %}">
+	    	<img style="height: 38px;" src="{% static  'img/index_img/cctv.png'  %}">
+	    </center>
+
+	    <script type="text/javascript">
+
+	    	$(function(){
+
+				var timer_run = setInterval(run,30);
+	    		function run(){
+
+	    			$('.yq div ul').animate({ left:'-=1'},0);
+//	    			console.log( parseInt( $('.yq div ul').css('left') ) );
+
+	    			if( parseInt( $('.yq div ul').css('left') ) == -852 ){
+	    				$('.yq div ul').css('left','0');
+	    			}
+	    		}
+
+	    		$('.yq div ul').hover(function(){
+	    			clearInterval(timer_run);
+	    		},function(){
+	    			timer_run = setInterval(run,30);
+	    		})
+	    	})
+
+	    </script>
+	    <div class="yq">
+	    	<span>友情链接：</span>
+	    	<div>
+	    		<ul>
+	    			<li>广州分类信息网</li>
+	    			<li>四季青服装网</li>
+	    			<li>优惠券</li>
+	    			<li>手表品牌大全</li>
+	    			<li>服装批发拿货</li>
+	    			<li>服装批发网</li>
+	    			<li>网上购物</li>
+	    			<li>淘牛品</li>
+	    			<li>虎扑识货</li>
+	    			<li>享优惠</li>
+	    			<li>女装批发网</li>
+	    			<li>照片书</li>
+	    			<li>优品惠</li>
+	    			<li>广州分类信息网</li>
+	    			<li>四季青服装网</li>
+	    			<li>优惠券</li>
+	    			<li>手表品牌大全</li>
+	    			<li>服装批发拿货</li>
+	    			<li>服装批发网</li>
+	    			<li>网上购物</li>
+	    			<li>淘牛品</li>
+	    			<li>虎扑识货</li>
+	    			<li>享优惠</li>
+	    			<li>女装批发网</li>
+	    			<li>照片书</li>
+	    			<li>优品惠</li>
+	    			<li>广州分类信息网</li>
+	    			<li>四季青服装网</li>
+	    			<li>优惠券</li>
+	    			<li>手表品牌大全</li>
+	    			<li>服装批发拿货</li>
+	    			<li>服装批发网</li>
+	    			<li>网上购物</li>
+	    			<li>淘牛品</li>
+	    			<li>虎扑识货</li>
+	    			<li>享优惠</li>
+	    			<li>女装批发网</li>
+	    			<li>照片书</li>
+	    			<li>优品惠</li>
+	    		</ul>
+	    	</div>
+	    </div>
+
+	    <!-- 右侧悬浮 -->
+	    <script type="text/javascript">
+	    	$(function(){
+	    		$('.float_box ul li').hover(function(){
+	    			$(this).css('background-position-x','-78px');
+	    		},function(){
+	    			$(this).css('background-position-x','0px');
+	    		})
+
+	    		$(window).scroll(function(){
+	    			var currentTop = $(this).scrollTop();
+
+	    			if( currentTop>=$('.gonggao').offset().top ){
+	    				$('.float_box').show();
+	    			}else{
+	    				$('.float_box').hide();
+	    			}
+
+	    		});
+
+	    		$('.float_box ul li:last').click(function(){
+	    			$('body,html').animate({
+						"scrollTop" :  0
+					},500)
+	    		})
+
+	    		$('.float_box li:first').click(function(){
+	    			location.href = "cart.html";
+	    		})
+	    	})
+	    </script>
+	    <div class="float_box">
+	    	<ul>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -164px;"></li>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -242px;"></li>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -320px;"></li>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -399px;"></li>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -478px;"></li>
+	    	</ul>
+	    </div>
+    </body>
+
+</html>

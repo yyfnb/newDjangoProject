@@ -1,0 +1,380 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				min-height: 1055px !important;
+			}
+		</style>
+	</head>
+	<body>
+        <!-- Header -->
+		<link rel="stylesheet" type="text/css" href="/static/css/header.css">
+		<script src="/static/js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/static/js/test.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var userMsg = $.cookie("userMsg");
+				if( userMsg ){
+
+					userMsg = JSON.parse(userMsg);
+					$('#global_right ul li').remove();
+					$('#global_right ul').append("<li style='width: auto;'>欢迎您，"+ userMsg.user +"<em class='lv lv0'></em></li>");
+					$('#global_right ul').append("<li style='margin-left: 22px;'><a href='index.html' >退出</a></li>");
+					$('#global_right ul').append("<li style='width: 40px;'><a href='cart.html'>购物车</a></li>");
+
+					//退出
+					$('#global_right ul li:eq(1) a').click(function(){
+						$.cookie("userMsg",null, {expires:0, path:"/"}); //清空cookie
+					})
+				}
+			})
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				$('#global_left li:first').click(function(){
+					location.href = "index.html";
+				})
+			})
+		</script>
+		<div id="global_nav">
+			<div id="global_left">
+				<ul>
+					<li style="color: red; font-weight: bold;">返回首页</li>
+					<li>收藏网站</li>
+				</ul>
+			</div>
+			<div id="global_right">
+				<ul>
+					<li style="width: 155px;">您好，欢迎光临韩都衣舍！</li>
+					<li><a href="login.html">登录</a></li>
+					<li><a href="register.html" style="color: red;">注册</a></li>
+					<li style="width: 40px;"><a href="cart.html">购物车</a></li>
+				</ul>
+			</div>
+			<div style="float: left; margin: 6px 4px 0 0; color: #DDDDDD;"> 丨 </div>
+			<div id="list_right">
+				<ul>
+					<li><a href="">在线客服</a></li>
+					<li><a href="">帮助中心</a></li>
+					<li style="width: 73px; cursor: pointer;"><div></div><a href="">网站导航</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		$(function(){
+			$("#list_right ul li").eq(2).hover(function(){
+				$("#webhd").show();
+			},function(){
+				$("#webhd").hide();
+			});
+			$("#webhd").hover(function(){
+				$("#webhd").show();
+			},function(){
+				$("#webhd").hide();
+			});
+		})
+		</script>
+		<div id="webhd" style="display: none;">
+			<div class="hot">
+				<h3>大家都在买Hot</h3>
+				<ul>
+					<li>t恤</li>
+					<li>连衣裙</li>
+					<li>牛仔裤</li>
+					<li>毛衣针织</li>
+					<li>卫衣绒衫</li>
+					<li>休闲套装</li>
+				</ul>
+			</div>
+			<div class="women">
+				<h3>女装Women</h3>
+				<ul>
+					<li>韩风快时尚女装</li>
+					<li>韩风快时尚妈妈装</li>
+					<li>韩风甜美少女装</li>
+					<li>东方复古设计师女装</li>
+					<li>韩风名媛时尚女装</li>
+					<li>欧美浪漫田园风女装</li>
+					<li>韩风大码女装</li>
+					<li>欧美快时尚女装</li>
+				</ul>
+			</div>
+			<div class="AMH">
+				<h3>男装Men</h3>
+				<ul>
+					<li>韩风快时尚男装</li>
+					<li>东风禅意设计师男装</li>
+					<li>欧美街头轻潮男装</li>
+				</ul>
+			</div>
+			<div class="mini">
+				<h3>童装Children</h3>
+				<ul>
+					<li>韩风快时尚童装</li>
+					<li>东风简约设计师童装</li>
+				</ul>
+			</div>
+			<div class="help">
+				<h3>帮助中心Help</h3>
+				<ul>
+					<li>会员制度</li>
+					<li>售后服务</li>
+					<li>购物流程</li>
+					<li>关于发票</li>
+					<li>配送方式</li>
+					<li>韩都招聘</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 购物车 -->
+		<link rel="stylesheet" type="text/css" href="css/cart.css">
+		<script src="js/cart.js" type="text/javascript" charset="utf-8"></script>
+		<div class="cart_header">
+			<a href="index.html" class="cart_logo fl"></a>
+			<div class="cart_step step1 fr"></div>
+		</div>
+
+		<div class="cart_wrap">
+			<div class="warm_tip">
+				<em>温馨提示：</em>
+				购物车中商品无法保留库存，请您及时下单结算
+			</div>
+			<div class="shopping_nr">
+				<div class="shopping_nr_title">
+		            <div class="shop_qx" style="width: 381px;">商品名称</div>
+		            <div class="shop_qx" style="width: 132px;">售价</div>
+		            <div class="shop_qx" style="width: 132px;">数量</div>
+		            <div class="shop_qx" style="width: 122px;">小计</div>
+		            <div class="shop_qx" style="width: 134px;">操作</div>
+		            <div class="shop_qx" style="width: 186px;">备注</div>
+        		</div>
+			</div>
+
+			<div id="cartGoodsList" class="shopping_nr_top">
+				<ul class="brand_cart" style="display: none;">
+					<!--<li>
+						<h3>品牌：HSTYLE女装</h3>
+            			<div class="shop_product">
+                			<div class="shop_product_pic">
+								<img src="img/cart_img/1474511664413928404.jpg" border="0" alt="韩都衣舍2016韩版女装秋装新款宽松连帽印花显瘦卫衣JM6012蒖">
+                			</div>
+                			<div class="shop_product_name">韩都衣舍2016韩版女装秋装新款宽松连帽印花显瘦卫衣JM6012蒖 </div>
+                			<div class="shop_product_size">
+                    			<span>颜色:<a>黑色</a> &nbsp;&nbsp;&nbsp;尺码:<a>S</a></span>
+                			</div>
+            			</div>
+            			<div class="shop_product_money">
+            				<div class="cprice">
+            					<del>￥568.00</del><br><span>￥128 </span>
+            				</div>
+            			</div>
+            			<div class="shop_product_number">
+			                <span class="amount-widget" id="J_AmountWidget">
+			                    <span class="increase">+</span>
+			                    <span class="decrease">-</span>
+			                    <input type="text" name="goods_number" class="text" old="1" value="1" maxlength="3" title="请输入购买量">
+			                </span>
+            			</div>
+            			<div class="shop_product_money00">￥128.00</div>
+            			<div class="shop_product_close">
+			                <div class="middle">
+			                    <span> 删除</span>
+			                </div>
+            			</div>
+        			</li>-->
+
+				</ul>
+			</div>
+
+			<div id="sumPrice" class="shopping_car_bottom" style="display: none;">
+	            <div class="shopping_car_bottom_right">
+	 		        <div class="accumulated fr">
+			            <table>
+				            <tbody>
+				            	<tr>
+				                	<td><span id="goods_allnum" class="p_color"></span>件商品</td>
+				                	<td class="td_len1">总计：</td>
+				              	    <td id="total_Price" class="td_len"></td>
+				              	</tr>
+				              	<tr>
+		                    		<td colspan="2">满立减：</td>
+		                			<td id="total_fanxian">- ￥0.00</td>
+		              			</tr>
+		              			<tr>
+		                    		<td colspan="2">税费：</td>
+		                			<td id="total_fanxian">- ￥0.00 </td>
+		              			</tr>
+				            </tbody>
+			            </table>
+			        </div>
+	            </div>
+        	</div>
+
+			<div class="shopping_car_bottom shopping_car_bottom_bg" style="display: none;">
+	            <div class="shopping_car_bottom_right">
+	                <span class="shopping_car_bottom_rightMoney">
+	                    <span style="line-height:50px;">
+	                       	 购物金额总计：
+	                        <span style="min-width:75px;display:inline-block;text-align:right;">
+		                        <span style="color:#bf0000; font-size:18px;">￥</span>
+		                        <span id="totalAmount"></span>
+	                        </span>
+	                    </span>
+	                </span>
+	            </div>
+        	</div>
+
+        	<a id="go_on" href="index.html" style="display: none;">
+        		<div class="cart_btn btn9 fl" style="margin-right:10px;margin-top:12px;"></div>
+        	</a>
+        	<a id="jiesuan" style="display: none;">
+        		<div class="cart_btn btn1 fr" style="margin-top:12px;position:relative;"></div>
+			</a>
+
+			<div id="nothing" class="shopping_car_bottom" style="display: none;">
+				<div class="shopping_car_arrow">
+	                <div class="car_arrow"></div>
+	                <ul class="car_arrow_txt">
+	                   <li class="car_arrow_warn">您的购物车内没有商品，请挑选心仪的商品吧！</li>
+	                   <li><a href="index.html" target="_blank" class="go_shopping">去挑选喜欢的商品</a></li>
+	                </ul>
+            	</div>
+			</div>
+
+		</div>
+
+		<!-- footer -->
+	    <link rel="stylesheet" type="text/css" href="/static/css/footer.css">
+	    <div class="footer_info">
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 0px 0px;"></h4>
+	    		<ul>
+	    			<li>用户注册</li>
+	    			<li>购物流程</li>
+	    			<li>网站导航</li>
+	    			<li>帮助中心</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat -2px -34px;"></h4>
+	    		<ul>
+	    			<li>在线支付</li>
+	    			<li>货到付款</li>
+	    			<li>扫码支付</li>
+	    			<li>优惠券支付</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 10px -66px;"></h4>
+	    		<ul>
+	    			<li>配送说明</li>
+	    			<li>运费说明</li>
+	    			<li>验货签收</li>
+	    			<li>货到付款</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 3px -99px;"></h4>
+	    		<ul>
+	    			<li>退换货政策</li>
+	    			<li>退换货流程</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 2px -133px;"></h4>
+	    		<ul>
+	    			<li>会员制度</li>
+	    			<li>会员积分</li>
+	    			<li>好评有礼</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 1px -197px;"></h4>
+	    		<ul>
+	    			<li>品牌故事</li>
+	    			<li>媒体报道</li>
+	    			<li>诚聘英才</li>
+	    			<li>联系我们</li>
+	    		</ul>
+	    	</div>
+	    </div>
+
+	    <img style="margin: 24px 0 0 169px;" src="{% static  'img/index_img/feature1.png'  %}">
+
+	    <div class="footer_black">
+	    	<ul>
+	    		<li>首页</li><s> 丨 </s>
+	    		<li>品牌故事</li><s> 丨 </s>
+	    		<li>诚聘英才</li><s> 丨 </s>
+	    		<li>媒体报道</li><s> 丨 </s>
+	    		<li>联系我们</li><s> 丨 </s>
+	    		<li>网站地图</li><s> 丨 </s>
+	    		<li>友情链接</li>
+	    	</ul>
+	    </div>
+
+	    <div class="copyright">
+	    	<div>
+	    		<img src="{% static  'img/index_img/copyright.gif'  %}">鲁ICP备14003322号-2 © 2006-2015 handu.com All Rights Reserved.
+	    		<img src="{% static  'img/index_img/beiantubiao.png'  %}">鲁公网安备 37010202000113号 山东韩都衣舍电商集团有限公司，禁止非法复制
+	    		<img src="{% static  'img/index_img/pic.gif'  %}">
+	    	</div>
+	    </div>
+
+	    <center>
+	    	<img src="{% static  'img/index_img/zxmbutton02_sy.jpg'  %}">
+	    	<img src="{% static  'img/index_img/zxmbutton05_sy.jpg'  %}">
+	    	<img style="width: 102px; height: 38px;" src="{% static  'img/index_img/cnnic.png'  %}">
+	    	<img style="height: 38px;" src="{% static  'img/index_img/cctv.png'  %}">
+	    </center>
+
+	    <!-- 右侧悬浮 -->
+	    <script type="text/javascript">
+	    	$(function(){
+	    		$('.float_box ul li').hover(function(){
+	    			$(this).css('background-position-x','-78px');
+	    		},function(){
+	    			$(this).css('background-position-x','0px');
+	    		})
+
+	    		$(window).scroll(function(){
+	    			var currentTop = $(this).scrollTop();
+
+	    			if( currentTop>=$('.brand_cart').offset().top ){
+	    				$('.float_box').show();
+	    			}else{
+	    				$('.float_box').hide();
+	    			}
+
+	    		});
+
+	    		$('.float_box ul li:last').click(function(){
+	    			$('body,html').animate({
+						"scrollTop" :  0
+					},500)
+	    		})
+
+	    		$('.float_box li:first').click(function(){
+	    			location.href = "cart.html";
+	    		})
+	    	})
+	    </script>
+	    <div class="float_box">
+	    	<ul>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -164px;"></li>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -242px;"></li>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -320px;"></li>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -399px;"></li>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -478px;"></li>
+	    	</ul>
+	    </div>
+
+    </body>
+</html>

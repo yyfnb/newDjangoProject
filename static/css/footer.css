@@ -1,0 +1,109 @@
+
+.footer_info {
+	width: 1200px;
+	margin:40px 0 0 111px;
+	overflow: hidden;
+	background: #FAFAFA;
+	height: 145px;
+}
+.info_column {
+	width: 110px;
+	height: 105px;
+	margin: 20px 45px;
+	float: left;
+}
+.info_column h4 {
+	width: 110px;
+	height: 25px;
+}
+.info_column ul li {
+	cursor: pointer;
+	font-size: 13px;
+	color: #333;
+	font-family: "微软雅黑";
+	margin-left: 9px;
+	line-height: 21px;
+}
+.footer_black {
+	width: 1200px;
+	height: 30px;
+	margin: 20px 0 0 111px;
+	background: #393939;
+}
+.footer_black ul {
+	margin-left: 271px;
+}
+.footer_black ul li {
+	float: left;
+	color: white;
+	font-size: 12px;
+	width: 50px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	padding: 0 14px;
+	cursor: pointer;
+}
+.footer_black ul s {
+	float: left;
+	color: white;
+	font-size: 12px;
+	line-height: 30px;
+}
+.copyright { width: 100%; overflow: hidden; }
+.copyright div { 
+	width: 950px; 
+	margin:0 auto; 
+	font-size: 12px;
+	padding: 10px 125px;
+}
+.copyright div img {
+	vertical-align: middle;
+}
+.yq {
+	width: 1200px;
+	margin:0 auto;
+	padding: 10px 0;
+}
+.yq span {
+	font-size: 12px;
+}
+.yq div {
+	width: 1140px;
+	height: 30px;
+	float: right;
+	overflow: hidden;
+}
+.yq div ul {
+	width: 2442px;
+	overflow: hidden;
+	position: relative;
+	left: 0;
+}
+.yq div ul li {
+	font-size: 12px;
+	height: 30px;
+	line-height: 22px;
+	float: left;
+	color: #565656;
+	margin-right: 12px;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+}
+
+/* 右侧悬浮  */
+.float_box {
+	position: fixed;
+	top: 160px;
+	right: 0;
+	bottom: 100px;
+	display: none;
+	z-index: 99999;
+}
+.float_box ul li {
+	width: 72px;
+	height: 78px;
+	cursor: pointer;
+}
+

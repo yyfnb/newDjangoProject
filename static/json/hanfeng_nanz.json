@@ -1,0 +1,34 @@
+[
+	{
+	    "id": 6,
+		"img": "img/index_img/1047366_thumb_G_1469848690665.jpg",
+		"price":"￥136.00",
+		"del_price":"￥168.00",
+		"buy":"立即抢购"
+	},
+	{
+	    "id": 7,
+		"img": "img/index_img/1047315_thumb_G_1470107213331.jpg",
+		"price":"￥176.00",
+		"del_price":"￥228.00",
+		"buy":"立即抢购"
+	},{
+	    "id": 8,
+		"img": "img/index_img/1047310_thumb_G_1470109084528.jpg",
+		"price":"￥118.00",
+		"del_price":"￥168.00",
+		"buy":"立即抢购"
+	},{
+	    "id": 9,
+		"img": "img/index_img/1046812_thumb_G_1473842583375.jpg",
+		"price":"￥238.00",
+		"del_price":"￥268.00",
+		"buy":"立即抢购"
+	},{
+	    "id": 10,
+		"img": "img/index_img/1046795_thumb_G_1469587603359.jpg",
+		"price":"￥138.00",
+		"del_price":"￥198.00",
+		"buy":"立即抢购"
+	}
+]

@@ -1,0 +1,141 @@
+
+
+.login {
+    margin: 0 auto;
+    width: 1100px;
+    float: none;
+}
+
+.login_left {
+    width: 420px;
+    margin: 60px 40px 0 0px;
+    float: left;
+    display: inline;
+}
+.login_right {
+    width: 527px;
+    height: 500px;
+    border-left: #DDD 1px dashed;
+    padding-left: 80px;
+    float: left;
+}
+.login_form {
+    width: 300px;
+    padding: 20px 40px 45px 40px;
+    margin-top: 40px;
+    box-shadow: 2px 1px 5px rgba(0,0,0,0.4);
+    border: 1px solid #EEE;
+    opacity: 0.95;
+    font-size: 14px;
+    float: left;
+}    
+.login_form h1{
+    width: 100%;
+    height: 30px;
+    font-size: 19px;
+    border-bottom: solid 1px #eee;
+    color: #666;
+}
+.news_loginright {
+  	margin-top: 40px;
+    float: left;
+}
+
+.news_loginright_list li {
+    font-size: 12px;
+    float: left;
+    width: 100%;
+    margin: 10px 0 0 0;
+}
+.news_loginname {
+    font-size: 14px;
+    width: 75px;
+    text-align: right;
+    color: #393939;
+    line-height: 33px;
+    float: left;
+}
+input.news_logintxt {
+    width: 207px;
+    height: 33px;
+    line-height: 33px;
+    float: left;
+    color: #BBBBBB;
+    font-family: 'Microsoft YaHei';
+    border: 1px solid #dedede;
+}
+.yanzheng {
+	width: 115px; 
+	height: 30px;
+	border: 1px solid #dedede;
+	float: left;
+}
+.login_list_yzm {
+	width: 84px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	float: left;
+	border: 1px solid lightgray;
+	margin-left: 5px;
+	font-family: "微软雅黑";
+	cursor: pointer;
+	font-size: 16px;
+}
+.login_error {
+    color: #c80a28;
+    margin: 10px 0;
+    width: 100%;
+    text-align: left;
+    font-size: 12px;
+    float: left;
+}
+.login_btn {
+    background: #BE0929;
+    width: 140px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #fff;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    border: none;
+    font-family: 'Microsoft YaHei';
+    float: left;
+    cursor: pointer;
+}
+.login_ridio {
+	margin:19px 0 0 5px;
+	float: left;
+}
+.login_other {
+    width: 528px;
+    margin: 30px 0 15px 0;
+    font-size: 12px;
+    float: left;
+}
+.login_other_title {
+    height: 29px;
+    line-height: 29px;
+    float: left;
+}
+.login_other_btn span {
+    background-image: url(../img/register_img/NEWS_login.png);
+    cursor: pointer;
+}
+.login_other_btn00 {
+    background-position: 0 -528px;
+    width: 97px;
+    height: 29px;
+    margin-right: 10px;
+    float: left;
+}
+.login_other_btn11 {
+    background-position: -111px -528px;
+}
+.login_other_btn22 {
+     background-position: -222px -528px; 
+}
+.login_other_btn33 {
+    background-position: -333px -528px;
+}

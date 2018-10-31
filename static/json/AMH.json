@@ -1,0 +1,48 @@
+
+[
+	{	
+		"H_list":["2016秋装新品","T恤","衬衫","外套","休闲裤","牛仔裤","针织衫","更多>"],
+		"s_img_img":"img/index_img/1469763145598257010.jpg",
+		"s_img_div":"秋装新品",
+		"s_img_span":" > ",
+		"s_cate1":["衬衫","T恤","卫衣","牛仔裤","休闲裤","短外套"],
+		"s_cate2":["【活动】AMH-韩风快时尚男装"],
+		"fl_img":"img/index_img/1473140801010377822.jpg",
+		"fl_img21":"img/index_img/1473843541775698155.jpg",
+		"fl_img22":"img/index_img/1469763568385151094.jpg",
+		"HSTYLE_list":[
+			{
+			    "id": 36,
+				"img": "img/index_img/1047309_thumb_G_1472103271097.jpg",
+				"price":"￥208.00",
+				"del_price":"￥318.00",
+				"buy":"立即抢购"
+			},
+			{
+			    "id": 37,
+				"img": "img/index_img/1047300_thumb_G_1472119567895.jpg",
+				"price":"￥121.00",
+				"del_price":"￥168.00",
+				"buy":"立即抢购"
+			},{
+			    "id": 38,
+				"img": "img/index_img/1046426_thumb_G_1472119467927.jpg",
+				"price":"￥86.00",
+				"del_price":"￥158.00",
+				"buy":"立即抢购"
+			},{
+			    "id": 39,
+				"img": "img/index_img/1046801_thumb_G_1469844462759.jpg",
+				"price":"￥138.00",
+				"del_price":"￥168.00",
+				"buy":"立即抢购"
+			},{
+			    "id": 40,
+				"img": "img/index_img/1470621202365817786.jpg",
+				"price":"￥178.00",
+				"del_price":"￥258.00",
+				"buy":"立即抢购"
+			}
+		]
+	}
+]

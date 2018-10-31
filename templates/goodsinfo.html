@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				min-height: 1200px !important;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var userMsg = $.cookie("userMsg");
+				if( userMsg ){
+					
+					userMsg = JSON.parse(userMsg);
+					$('#global_right ul li').remove();
+					$('#global_right ul').append("<li style='width: auto;'>欢迎您，"+ userMsg.user +"<em class='lv lv0'></em></li>");
+					$('#global_right ul').append("<li style='margin-left: 22px;'><a href='index.html' >退出</a></li>");
+					$('#global_right ul').append("<li style='width: 40px;'><a href='cart.html'>购物车</a></li>");
+					
+					//退出
+					$('#global_right ul li:eq(1) a').click(function(){
+						$.cookie("userMsg",null, {expires:0, path:"/"}); //清空cookie
+					})
+				}
+			})
+		</script>
+	</head>
+	<body>
+		<!-- Header -->	
+		<script type="text/javascript">
+			$(function(){
+				$('#global_left li:first').click(function(){
+					location.href = "index.html";
+				})
+			})
+		</script>
+		<div id="global_nav">
+			<div id="global_left">
+				<ul>
+					<li style="color: red; font-weight: bold;">返回首页</li>
+					<li>收藏网站</li>
+				</ul>
+			</div>
+			<div id="global_right">
+				<ul>
+					<li style="width: 155px;">您好，欢迎光临韩都衣舍！</li>
+					<li><a href="login.html">登录</a></li>
+					<li><a href="register.html"  style="color: red;">注册</a></li>
+					<li style="width: 40px;"><a href="cart.html">购物车</a></li>
+				</ul>
+			</div>
+			<div style="float: left; margin: 6px 4px 0 0; color: #DDDDDD;"> 丨 </div>
+			<div id="list_right">
+				<ul>
+					<li><a href="">在线客服</a></li>
+					<li><a href="">帮助中心</a></li>
+					<li style="width: 73px; cursor: pointer;"><div></div><a href="">网站导航</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+		$(function(){
+			$("#list_right ul li").eq(2).hover(function(){
+				$("#webhd").show();
+			},function(){
+				$("#webhd").hide();
+			});
+			$("#webhd").hover(function(){
+				$("#webhd").show();
+			},function(){
+				$("#webhd").hide();
+			});
+		})
+		</script>
+		<div id="webhd" style="display: none;">
+			<div class="hot">
+				<h3>大家都在买Hot</h3>
+				<ul>
+					<li>t恤</li>
+					<li>连衣裙</li>
+					<li>牛仔裤</li>
+					<li>毛衣针织</li>
+					<li>卫衣绒衫</li>
+					<li>休闲套装</li>
+				</ul>
+			</div>
+			<div class="women">
+				<h3>女装Women</h3>
+				<ul>
+					<li>韩风快时尚女装</li>
+					<li>韩风快时尚妈妈装</li>
+					<li>韩风甜美少女装</li>
+					<li>东方复古设计师女装</li>
+					<li>韩风名媛时尚女装</li>
+					<li>欧美浪漫田园风女装</li>
+					<li>韩风大码女装</li>
+					<li>欧美快时尚女装</li>
+				</ul>
+			</div>
+			<div class="AMH">
+				<h3>男装Men</h3>
+				<ul>
+					<li>韩风快时尚男装</li>
+					<li>东风禅意设计师男装</li>
+					<li>欧美街头轻潮男装</li>
+				</ul>
+			</div>
+			<div class="mini">
+				<h3>童装Children</h3>
+				<ul>
+					<li>韩风快时尚童装</li>
+					<li>东风简约设计师童装</li>
+				</ul>
+			</div>
+			<div class="help">
+				<h3>帮助中心Help</h3>
+				<ul>
+					<li>会员制度</li>
+					<li>售后服务</li>
+					<li>购物流程</li>
+					<li>关于发票</li>
+					<li>配送方式</li>
+					<li>韩都招聘</li>
+				</ul>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			$(function(){
+				$('.hdtop_logo').click(function(){
+					location.href = "index.html";
+				})
+			})
+		</script>
+		<div id="hdtop_header">
+			<div class="hdtop_logo"></div>
+			<div class="hd_search">
+				<div class="hdi_search">
+					<input type="text" id="" value="" />
+					<button>搜   索</button>
+				</div>
+				<div class="hotwords">
+					<ul>
+						<li>韩风童装</li><s> 丨 </s>
+						<li>精选男装</li><s> 丨 </s>
+						<li>简约女装</li><s> 丨 </s>
+						<li>甜美女装</li><s> 丨 </s>
+						<li>时尚妈妈</li><s> 丨 </s>
+						<li>明星同款</li>
+					</ul>
+				</div>
+			</div>
+			<img src="img/index_img/ewm.png"/>
+		</div>
+		
+		<div class="yNavIndex">
+			<div style="width: 100%;height: 12px;">
+				<span style="float: right; font-size: 12px; margin-right: 162px; color: red; font-weight:bold ;">下载APP即送壕礼</span>
+			</div>
+			<div class="yHeader">
+				<div class="pullDTitle">全部商品分类</div>
+				<ul class="yMenuIndex">
+					<li style="width: 134px;">2016秋冬新品</li>
+					<li>会员专享</li>
+					<li>团购批发</li>
+				</ul>
+				<ul class="nav_right">
+					<li style="width: 105px;">会员俱乐部 <img src="img/index_img/sjt.png"/></li>
+					<li style="width: 98px;">韩都咨询 <img src="img/index_img/sjt.png"/></li>
+					<li>招兵买马</li>
+				</ul>
+				<ul class="vip" style="display: none;">
+					<li style="border-bottom: 1px solid #E5E5E5;">韩都真人秀</li>
+					<li>好评有礼</li>
+				</ul>
+				<ul class="hd_news" style="display: none;">
+					<li style="border-bottom: 1px solid #E5E5E5;">韩都设计</li>
+					<li>品牌故事</li>
+				</ul>
+				<script type="text/javascript">
+					$(function(){
+						$(".nav_right li").eq(0).hover(function(){ $(".vip").show(); },function(){ $(".vip").hide(); })
+						$(".vip").hover(function(){ $(".vip").show(); },function(){ $(".vip").hide(); })
+						
+						$(".nav_right li").eq(1).hover(function(){ $(".hd_news").show(); },function(){ $(".hd_news").hide(); })
+						$(".hd_news").hover(function(){ $(".hd_news").show(); },function(){ $(".hd_news").hide(); })
+					})
+				</script>
+			</div>
+		</div>	
+	<!-- 商品分类  -->
+	<link rel="stylesheet" type="text/css" href="css/lunbo_goods.css"/>
+    <script src="js/goods_classify.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    	$(function(){
+    		$('.pullDTitle').hover(function(){
+    			$('#goods_classify').show();
+    		},function(){
+    			$('#goods_classify').hide();
+    		})
+    		
+    		$('#goods_classify').hover(function(){
+    			$('#goods_classify').show();
+    		},function(){
+    			$('#goods_classify').hide();
+    		})
+    	})
+    </script>
+        <div id="goods_classify" style="display: none;">
+        	<ul>
+        		<li>
+        			<h4><img src="img/index_img/tb1.png"/>  全部商品分类</h4>
+        			<a href="">本周新品</a>
+        			<a href="">按价格</a>
+        			<a href="">按销量</a>
+        			<span></span>
+        		</li>
+        		<li>
+        			<h4><img src="img/index_img/tb2.png"/>  精选推荐</h4>
+        			<a href="" class="red">连衣裙</a>
+        			<a href="">潮流爆款</a>
+        			<a href="">秋季风格</a>
+        			<span></span>
+        		</li>
+        		<li>
+        			<h4><img src="img/index_img/tb3.png"/>  潮流女装</h4>
+        			<a href="" class="red">T恤</a>
+        			<a href="">连衣裙</a>
+        			<a href="">牛仔裤</a>
+        			<span></span>
+        		</li>
+        		<li>
+        			<h4><img src="img/index_img/tb4.png"/>  精品男装</h4>
+        			<a href="" class="red">T恤</a>
+        			<a href="">衬衫</a>
+        			<a href="">裤装</a>
+        			<span></span>
+        		</li>
+        		<li>
+        			<h4><img src="img/index_img/tb5.png"/>  可爱童装</h4>
+        			<a href="">童装新品</a>
+        			<a href="" class="red">裙装</a>
+        			<a href="">毛衣/针织衫</a>
+        			<span></span>
+        		</li>
+        		<li>
+        			<h4><img src="img/index_img/tb6.png"/>  时尚妈妈</h4>
+        			<a href="">T恤</a>
+        			<a href="">连衣裙</a>
+        			<a href="">裤装</a>
+        			<a href="">外套</a>
+        			<span></span>
+        		</li>
+        		<li>
+        			<h4><img src="img/index_img/tb7.png"/>  鞋包配饰</h4>
+        			<a href="" class="red">鞋子</a>
+        			<a href="">鞋包</a>
+        			<span></span>
+        		</li>
+        	</ul>
+        	
+        	<div name="xt" class="itemtc_h" style="display: none;">
+        		<div class="itemtcul_h">
+        			<div style="width: 70px; height: 423px; margin-left: 37px;">
+        				<img src="img/index_img/nana.png"/>
+        				<img src="img/index_img/hstyle.png"/>
+        				<img src="img/index_img/forqueen.png"/>
+        				<img src="img/index_img/soneed.png"/>
+        				<img src="img/index_img/hanyunyixiang.png"/>
+        				<img src="img/index_img/ytxz.png"/>
+        				<img src="img/index_img/nibbuns.png"/>
+        				<img src="img/index_img/cx.png"/>
+        				<img src="img/index_img/bly.png"/>
+        			</div>
+	        		<div style="width: 70px; height: 423px;">
+	        			<img src="img/index_img/laola.png"/>
+	        			<img src="img/index_img/sulv.png"/>
+	        			<img src="img/index_img/zc.png"/>
+	        			<img src="img/index_img/amh.png"/>
+	        			<img src="img/index_img/anma.png"/>
+	        			<img src="img/index_img/zg.png"/>
+	        			<img src="img/index_img/mini.png"/>
+	        			<img src="img/index_img/hp.png"/>
+	        			<img src="img/index_img/dx1.png"/>
+	        		</div>
+	        		<div><img src="img/index_img/guoya.png"/></div>
+        		</div>
+        	</div>
+        	
+        	<div name="xt" id="handpick" style="display: none;">
+        		<div class="">
+        			<h4>特惠精选</h4>
+        			<a href="" style="margin-left: 14px;">清仓特惠</a><s> 丨 </s>
+        			<a href="">爆款特惠</a>
+        		</div>
+        		<div class="">
+        			<h4>潮流新品</h4>
+        			<a href="" class="red" style="margin-left: 14px;">2016秋装新品</a><s> 丨 </s>
+        			<a href="">原创新品</a><s> 丨 </s>
+        			<a href="">T恤新品</a><s> 丨 </s>
+        			<a href="">连衣裙新品</a><s> 丨 </s>
+        			<a href="">牛仔新品</a>
+        		</div>
+        		<div style="height: 61px;" class="">
+        			<h4>类目新品</h4>
+        			<a href="" class="red" style="margin-left: 14px;">连衣裙</a><s> 丨 </s>
+        			<a href="">牛仔裤</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">卫衣</a><s> 丨 </s>
+        			<a class="red" href="">T恤</a><s> 丨 </s>
+        			<a href="">休闲裤</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">套装</a><s> 丨 </s>
+        			<a href="">短裤</a>
+        		</div>
+        		<div class="">
+        			<h4>爆款集锦</h4>
+        			<a class="red" href="" style="margin-left: 14px;">2016秋装爆款</a><s> 丨 </s>
+        			<a href="">女装爆款</a><s> 丨 </s>
+        			<a href="">男装爆款</a><s> 丨 </s>
+        			<a href="">童装爆款</a><s> 丨 </s>
+        			<a href="">妈妈装爆款</a>
+        		</div>
+        		<div style="height: 61px;" class="">
+        			<h4>百变风格</h4>
+        			<a class="red" href="" style="margin-left: 14px;">潮流韩范</a><s> 丨 </s>
+        			<a href="">纯色</a><s> 丨 </s>
+        			<a href="">优雅OL</a><s> 丨 </s>
+        			<a href="">印花</a><s> 丨 </s>
+        			<a href="">甜美清新</a><s> 丨 </s>
+        			<a href="">条纹</a><s> 丨 </s>
+        			<a href="">度假出游</a><s> 丨 </s>
+        			<a href="">拼接</a><s> 丨 </s>
+        			<a href="">复古</a><s> 丨 </s>
+        			<a href="">字母</a><s> 丨 </s>
+        			<a href="">修身</a><s> 丨 </s>
+        			<a href="">几何</a><s> 丨 </s>
+        			<a href="">宽松</a><s> 丨 </s>
+        			<a href="">不规则</a>
+        		</div>
+        		<div style="height: 61px;" class="">
+        			<h4>更多推荐</h4>
+        			<a href="" style="margin-left: 14px;">设计师推荐</a><s> 丨 </s>
+        			<a href="">大码-范奎恩</a><s> 丨 </s>
+        			<a href="">劳拉的誓约</a><s> 丨 </s>
+        			<a href="">极简主义-白鹿语</a><s> 丨 </s>
+        			<a class="red" href="">轻时尚简约-哲初</a>
+        		</div>
+        	</div>
+        	
+        	<div name="xt" class="women_dress" style="display: none;">
+        		<div style="height: 61px;" class="">
+        			<h4>韩风时尚HSTYLE</h4>
+        			<a class="red" href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">套装</a><s> 丨 </s>
+        			<a class="red" href="">连衣裙</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a class="red" href="">牛仔裤</a><s> 丨 </s>
+        			<a href="">休闲裤</a><s> 丨 </s>
+        			<a href="">短裤</a><s> 丨 </s>
+        			<a href="">蕾丝衫/雪纺衫</a>
+        		</div>
+        		<div style="height: 80px;" class="">
+        			<h4>时尚名媛SONEED</h4>
+        			<a href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a class="red" href="">衬衫</a><s> 丨 </s>
+        			<a href="">蕾丝衫/雪纺衫</a><s> 丨 </s>
+        			<a href="">毛针织衫</a><s> 丨 </s>
+        			<a href="">卫衣/绒衫</a><s> 丨 </s>
+        			<a href="">西装</a><s> 丨 </s>
+        			<a href="">套装</a><s> 丨 </s>
+        			<a href="">风衣</a><s> 丨 </s>
+        			<a href="">背心吊带</a><s> 丨 </s>
+        			<a href="">毛呢外套</a><s> 丨 </s>
+        			<a href="">连衣裙</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">牛仔裤</a><s> 丨 </s>
+        			<a href="">休闲裤</a><s> 丨 </s>
+        			<a href="">短裤</a>
+        		</div>
+        		<div style="height: 80px;" class="">
+        			<h4>欧美风尚 尼班诗</h4>
+        			<a href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">西装</a><s> 丨 </s>
+        			<a href="">蕾丝衫/雪纺衫</a><s> 丨 </s>
+        			<a href="">卫衣/绒衫</a><s> 丨 </s>
+        			<a href="">毛针织衫</a><s> 丨 </s>
+        			<a href="">风衣</a><s> 丨 </s>
+        			<a href="">毛呢外套</a><s> 丨 </s>
+        			<a href="">短裤</a><s> 丨 </s>
+        			<a class="red" href="">牛仔裤</a><s> 丨 </s>
+        			<a href="">休闲裤</a><s> 丨 </s>
+        			<a href="">打底裤</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">连衣裙</a>
+        		</div>
+        		<div style="height: 80px;" class="">
+        			<h4>甜美少女NanaDay</h4>
+        			<a href="" style="margin-left: 14px;">毛针织衫</a><s> 丨 </s>
+        			<a class="red" href="">T恤</a><s> 丨 </s>
+        			<a href="">短外套</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">棉衣棉服</a><s> 丨 </s>
+        			<a href="">卫衣/绒衣</a><s> 丨 </s>
+        			<a href="">套装</a><s> 丨 </s>
+        			<a href="">连衣裙</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">毛呢外套</a><s> 丨 </s>
+        			<a href="">羽绒服</a><s> 丨 </s>
+        			<a href="">蕾丝雪纺</a><s> 丨 </s>
+        			<a href="">裤装</a>
+        		</div>
+        		<div style="border: none;">
+        			<img src="img/index_img/hstyle.png"/>
+        			<img src="img/index_img/sulv.png"/>
+        			<img src="img/index_img/soneed.png"/>
+        			<img src="img/index_img/nibbuns.png"/>
+        			<img src="img/index_img/forqueen.png"/>
+        			<img src="img/index_img/nana.png"/>
+        			<img src="img/index_img/ytxz.png"/>
+        			<img src="img/index_img/laola.png"/>
+        			<img src="img/index_img/bly.png"/>
+        			<img src="img/index_img/zc.png"/>
+        			<img src="img/index_img/cx.png"/>
+        		</div>
+        	</div>
+        	
+        	<div name="xt" class="man_clothing" style="display: none;">
+        		<div style="height: 80px;" class="">
+        			<h4>韩风时尚AMH</h4>
+        			<a class="red" href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a href="">POLO衫</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">毛衣/针织</a><s> 丨 </s>
+        			<a href="">卫衣</a><s> 丨 </s>
+        			<a href="">外套</a><s> 丨 </s>
+        			<a href="">夹克</a><s> 丨 </s>
+        			<a href="">风衣</a><s> 丨 </s>
+        			<a href="">棉衣棉服</a><s> 丨 </s>
+        			<a href="">羽绒服</a><s> 丨 </s>
+        			<a href="">休闲裤</a><s> 丨 </s>
+        			<a href="">牛仔裤</a><s> 丨 </s>
+        			<a href="">腰带</a><s> 丨 </s>
+        			<a href="">男鞋</a><s> 丨 </s>
+        			<a href="">帽子</a><s> 丨 </s>
+        			<a href="">男包</a>
+        		</div>
+        		<div style="height: 61px;" class="">
+        			<h4>欧美街头 暗码</h4>
+        			<a href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a href="">PLLO衫</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">毛衣/针织衫</a><s> 丨 </s>
+        			<a href="">卫衣</a><s> 丨 </s>
+        			<a href="">夹克</a><s> 丨 </s>
+        			<a class="red" href="">休闲裤</a><s> 丨 </s>
+        			<a href="">牛仔裤</a>
+        		</div>
+        		<div class="">
+        			<h4>东方禅意 自古</h4>
+        			<a href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a class="red" href="">衬衫</a><s> 丨 </s>
+        			<a href="">针织衫</a><s> 丨 </s>
+        			<a href="">风衣</a><s> 丨 </s>
+        			<a href="">休闲裤</a>
+        		</div>
+        		<div style="border: none;">
+        			<img src="img/index_img/amh.png"/>
+        			<img src="img/index_img/anma.png"/>
+        			<img src="img/index_img/zg.png"/>
+        		</div>
+        	</div>
+        	
+        	<div name="xt" class="kids" style="display: none;">
+        		<div style="height: 80px;" class="">
+        			<h4>韩风时尚Minizaru</h4>
+        			<a class="red" href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">卫衣</a><s> 丨 </s>
+        			<a href="">套装</a><s> 丨 </s>
+        			<a href="">毛衣/针织衫</a><s> 丨 </s>
+        			<a href="">毛呢/外套</a><s> 丨 </s>
+        			<a href="">羽绒服饰</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">连衣裙</a><s> 丨 </s>
+        			<a href="">休闲裤</a><s> 丨 </s>
+        			<a href="">牛仔裤</a><s> 丨 </s>
+        			<a href="">打底裤</a><s> 丨 </s>
+        			<a href="">短裤</a><s> 丨 </s>
+        			<a href="">马甲</a>
+
+        		</div>
+        		<div style="height: 61px;" class="">
+        			<h4>欧美风尚HoneyPig</h4>
+        			<a href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">卫衣</a><s> 丨 </s>
+        			<a href="">毛衣/针织衫</a><s> 丨 </s>
+        			<a href="">外套/夹克/大衣</a><s> 丨 </s>
+        			<a href="">套装</a><s> 丨 </s>
+        			<a href="">连衣裙</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">短裤</a><s> 丨 </s>
+        			<a class="red" href="">休闲裤</a><s> 丨 </s>
+        			<a href="">打底裤</a><s> 丨 </s>
+        			<a href="">牛仔裤</a>
+        		</div>
+        		<div style="height: 61px;" class="">
+        			<h4>东方禅意 自古</h4>
+        			<a class="red" href="" style="margin-left: 14px;">T恤/吊带衫</a><s> 丨 </s>
+        			<a href="">毛衣/针织衫</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">卫衣/绒衫</a><s> 丨 </s>
+        			<a href="">外套</a><s> 丨 </s>
+        			<a href="">裤子</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">连衣裙</a><s> 丨 </s>
+        			<a href="">棉衣/棉服</a>
+        		</div>
+        		<div style="border: none;">
+        			<img src="img/index_img/mini.png"/>
+        			<img src="img/index_img/hp.png"/>
+        			<img src="img/index_img/guoya.png"/>
+        			<img src="img/index_img/dx1.png"/>
+        		</div>
+        	</div>
+        	
+        	<div name="xt" class="mama" style="display: none;">
+        		<div style="height: 61px;" class="">
+        			<h4>妈妈装</h4>
+        			<a class="red" href="" style="margin-left: 14px;">T恤</a><s> 丨 </s>
+        			<a href="">衬衫</a><s> 丨 </s>
+        			<a href="">外套</a><s> 丨 </s>
+        			<a href="">毛衣/针织</a><s> 丨 </s>
+        			<a href="">风衣</a><s> 丨 </s>
+        			<a href="">棉衣/棉服</a><s> 丨 </s>
+        			<a href="">马甲</a><s> 丨 </s>
+        			<a href="">裤子</a><s> 丨 </s>
+        			<a href="">连衣裙</a><s> 丨 </s>
+        			<a href="">半身裙</a><s> 丨 </s>
+        			<a href="">套装</a>
+        		</div>
+        		<div style="border: none;">
+        			<img src="img/index_img/hanyunyixiang.png"/>
+        		</div>
+        	</div>
+        	
+        </div>
+        
+        <!-- 商品详情 -->
+        <link rel="stylesheet" type="text/css" href="css/goodsinfo.css"/>
+        <script src="js/goodsinfo.js" type="text/javascript" charset="utf-8"></script>
+        
+        <div class="handu_crumb" id="detail_crumb">
+        	您所在的位置
+        	<code> ></code><a href="">韩都衣舍</a>
+        </div>
+        
+        <div class="side_bar">
+        	<ul id="cate_guide">
+        		<h1>商品分类</h1>
+        	</ul>
+        	<img src="img/goodsinfo/1470880931507587404.png"/>
+        	<div class="share new_goods">
+        		<h1></h1>
+        		<ul>
+        		</ul>
+        	</div>
+        	
+        	<div class="share hot_goods">
+        		<h1></h1>
+        		<ul>
+        		</ul>
+        	</div>
+        	<img src="img/goodsinfo/1439186924043865480.jpg"/>
+        </div>
+        
+        <div class="detail_top">
+        	<div class="goods_detail_left">
+        		<div class="zoomPad">
+        			<div class="zoomPup"></div>
+        		</div>
+        		<div class="bigArea">
+        		</div>
+        		<ul class="gallery_nav">
+        		</ul>
+        		<div class="dashed"></div>
+        		<p class="like">收藏（<span>0</span>）</p>
+        		<div id="bdshare" class="bds_tools">
+        			<span class="bds_more">分享到：</span>
+        			<a href=""></a>
+        			<a href=""></a>
+        			<a href=""></a>
+        			<a href=""></a>
+        			<a href=""></a>
+        			<a href="">0</a>
+        		</div>
+        	</div>
+        	
+        	<div class="gooods_detail_right">
+        		<div class="product_detail_info">
+        			<h1></h1>
+        			<ul>
+        				<li>商品货号：&nbsp;  
+        					<span class="code"></span>
+        					&nbsp;&nbsp;&nbsp;&nbsp;售价：
+        					<del class="market_price"></del>
+        				</li>
+        				<li>促  销  价：
+        					<em class="promotionPrice"></em>
+        				</li>
+        				<li>销&nbsp;&nbsp;量：&nbsp;  
+        					<span class="sales"></span>
+        				</li>
+        				<li>用户评分：
+        					<span></span>
+        					（共有<span>0</span>条评论）
+        				</li>
+        			</ul>
+        		</div>
+        		<div class="product_detail_info"  style="padding-bottom: 0;">
+        			<div class="goods_attr text">
+        				<span class="label">尺码<b>：</b></span>
+        				<ul class="size">
+        				</ul>
+        			</div>
+        			<div class="goods_attr text">
+        				<span class="label">颜色<b>：</b></span>
+        				<ul class="color">
+        				</ul>
+        			</div>
+        		</div>
+        		
+        		<div class="product_detail_info">
+        			<div class="set">
+        				<span class="label">数量<b>：</b></span>
+        				<span class="amount-widget">
+        					<span class="increase">+</span>
+        					<span class="decrease">-</span>
+        					<input type="text" id="" value="1" />
+        				</span>
+        				<span class="goodsInventory">
+        					<font class="inventory" total="167">（库存<b></b>件）</font>
+        				</span>
+        			</div>
+        			<p id="GoodsSelected">你已选择了
+        				<span></span>
+        				<span></span>
+        			</p>
+        			<p class="GoodsSelected" style="display: none;">您未选择</p>
+        			<p class="detail_btn_set">
+                        <a class="fl detail_btn buy" title="点击购买"></a>
+                		<a class="fl detail_btn addCart" title="加入购物车"></a>
+                    </p>
+        		</div>
+        		
+        		<div class="product_detail_info" style="border-bottom: none;">
+        			<div class="extra_info">
+        				<ul class="line1">
+        					<li class="et_qqonline">
+        						<span>在线客服:</span>
+        						<span class="et_icon payway3"></span>
+        					</li>
+        					<li class="et_weixian" style="margin-left:30px;">
+	                            <span>官方微信:</span>
+	                            <span class="et_icon"></span>
+	                    		<img src="img/goodsinfo/sys.gif" class="sao">
+                    		</li>
+        				</ul>
+        				<div class="goods_payway line2">
+		                    <label>支付方式:</label>
+		                    <span>支付宝</span>
+		                    <span>网上银行付款</span>
+		                    &nbsp;&nbsp;&nbsp;&nbsp;
+		                    <label>服务承诺：</label>
+		                    <span class="sv_icon sv_icon1" title="100%正品保证"></span>
+		                    <span class="sv_icon sv_icon2" title="7天无理由退换货"></span>
+		                    <span class="sv_icon sv_icon3" title="安全快速退款"></span>
+               			</div>
+        			</div>
+        		</div>
+        		
+        	</div>
+        </div>
+        
+        <div id="flat_tab" class="fr">
+        	<div id="J_TabBarBox">
+        		<ul id="J_TabBar" class="tabbar tm-clear">
+		            <li class="current"><a>商品详情</a></li>
+		            <li><a id="goods_comments_a">评论详情 <span style="color:#c80a28;font-weight:normal;font-size: 12px;">(0)</span></a></li>
+					<li><a>常见问题</a></li>
+          		</ul>
+        	</div>
+        	<ul class="flat_content">
+        		<li class="Li">
+        			<div class="attributes-list" id="J_AttrList">
+        				<ul id="J_AttrUL">
+		                    <li id="J_attrBrandName" title="HSTYLE女装">品牌:&nbsp;<span></span></li>
+		                    <li>货号:<span></span></li>
+                            <li>尺码:<span></span></li>
+                            <li>颜色:<span></span></li>
+                        </ul>
+        			</div>
+        			<div id="top" class="quanbu">
+
+        			</div>
+        			<div style=" width: 1000px; margin: 0 auto;font-size: 14px;text-align: center;font-family: 微软雅黑;color: #5c5c5c;float:left;line-height:25px;">
+               	 	 	<span style="color:#000;">没空去韩国？就来韩都衣舍官网！韩都衣舍官网，网上购物首选。</span>
+                	</div>
+        		</li>
+        		<li style="display: none;" class="Li">
+        			<ul class="New_goodCONPLlist">
+        				
+        			</ul>
+        		</li>
+        		<!-- 常见问题 -->
+        		<li class="Li" style="display: none;">
+        			<div class="helpCenter_right">
+				      	<div class="helpCenter_right_header">
+				 			<a href="/helper.html">
+				       			<div class="hpr_hd">
+				        		</div>
+				        	</a>
+				        	<div class="hpr_search">
+				          		<div class="hpr_search_txt">
+				            		<form id="searchForm" name="searchForm" method="get" action="/helpercenter.php">
+				              			<input type="hidden" name="act" value="search">
+				              			<input id="hpr_searchinput" class="hpr_searchinput" title="search" size="10" name="keywords">
+				              			<input class="hpr_searchaction" border="0" hspace="2" alt="search" src="img/goodsinfo/hr_searchbtn.png" type="image">
+				            		</form>
+				         		 </div>
+				          		<div class="hpr_hotSearch">
+				           			<span>热门搜索:</span>
+				            		<a href="">支付方式</a>
+				            		<a href="">登录</a>
+				           			<a href="">注册</a>
+				            		<a href="">退换货</a>
+				          		</div>
+				        	</div>
+				        	<div class="service_call">
+				          		<div class="service_callNum" style="margin-right:-17px;">400-806-7777</div>
+				        	</div>
+				      	</div>      
+				      	<div class="hpr_content">
+				        	<div class="hpr_crumbs">
+				           		<span class="red_current"><a href="helper.html">帮助中心首页</a></span>
+				          		<span>网店帮助分类</span>&gt;<span>会员中心</span>&gt;<span>常见问题</span>        
+				        	</div>
+				        	<div class="hpr_txt">
+				            	<div class="hpr_txt_themes">会员中心</div>
+								<div class="hpr_txt_p">
+									<p class="p_h1"><span class="black_rect"></span>常见问题</p>
+									<p class="p_title red_txt">支付方式</p>
+				    				<p>韩都衣舍为您提供在线支付、网上银行、货到付款等多种支付方式，可满足您不同的支付需求。</p>
+				    				<h5><strong>1.在线支付</strong></h5>
+				    				<p>韩都衣舍为您提供支付宝支付、网上银行两种在线支付方式，几乎涵盖所有大中型银行发行的银行卡，覆盖率达98%。选择在线支付，您的银行卡需要开通相应的网上银行业务。</p>
+				    				<img src="img/goodsinfo/zhifu_list.png" alt="" style="margin-right:30px;"> 
+									<h5><strong>2.货到付款</strong></h5>
+				    				<p>货到付款是韩都衣舍配送员送货上门，客户收单验货后，直接将货款交给配送员的一种结算方式。</p>
+				    				<p><strong>更多支付方式问题请查看 <a href="/helper-22-121.html#xx_121" target="_blank">在线支付</a></strong></p> 
+				    				<br><br>
+				    				<p class="p_title red_txt">退换货政策</p>
+				    				<p>
+				    				1.退换货申请必须的要求 <br>
+				        			&nbsp;（1）韩都衣舍为您提供7天无条件退换货，如需办理退换货，请于签收之日7日内提交退换货申请，逾期不予退换； <br>
+				    				&nbsp;（2）因您个人原因造成的商品损坏（如自行修改尺寸、洗涤、皮具打油、刺绣、长时间穿着等）将不予退换。 <br>
+				   					&nbsp;（3）退货时请确保商品的外包装完好无损（包括包裹填充物及外包装箱或外包装袋），商品附件、吊牌、标签等齐全，商品保持官方商城
+				    				 出售时的原质原样，不影响二次销售。 <br>
+				    				&nbsp;（4）退换货单齐全，如果已开发票的要求发票齐全。 <br>
+				    				&nbsp;（5）如您进行礼包或套装中的商品部分退换，将无法享受礼包或套装购买时的优惠。商品销售页面明确标注不支持部分退换的，依据标注
+				      				内容处理。 <br>
+				    				2.以下情况不提供退换货服务 <br>
+				    				&nbsp;（1）超过退换货规定时限的商品。 <br>
+				   					&nbsp;（2）已经穿着过或洗涤过的商品。 <br>
+				    				&nbsp;（3）已经修改或加工过的商品。 <br>
+								    &nbsp;（4）商品吊牌、商标、票据等有缺失的商品。 <br>
+								    &nbsp;（5）少量色差问题商品（发错颜色商品除外）。 <br>
+								    &nbsp;（6）对于商品本身的附件（如连衣裙搭配的腰带）损坏、弄丢原因造成的问题不予退换。 <br>
+								    &nbsp;（7）化妆品不提供试用服务，包装一经开封，非质量原因不予退货。<br>
+								    &nbsp;3.退换货费用问题 <br>
+								    &nbsp;（1）退换货： 由于量问题导致的退换货，韩都衣舍承担来回的运费，买家寄回时垫付运费稍后给您退款。 非质量问题的退换货需由买家承
+								         担来回的费用。 <br>
+								    &nbsp;（2）退换货邮费差价：若客户在退换过程中产生邮费差价或货品差价，可直接通过"邮费补拍"自行选购，付款后联系客服进行退换货处理
+								         事宜。<br>
+								    &nbsp;4.一张订单韩都衣舍只提供一次退换货服务，为了确保您的权益，请考虑周全后与我们联系。<br>
+								    &nbsp;5.请确保商品吊牌及各种包装完整。<br>
+								    &nbsp;6.如果想要退换货请登录"用户中心"-"我要退换货" 自助申请即可。 <br>
+								    &nbsp;7.礼包或套装中的商品不可以部分退货，因退货后，原礼包或套装中商品将无法享受购买时优惠。<br>
+								    &nbsp;8.图片及信息仅供参照，因拍摄灯光及不同显示器色差等问题可能造成商品图片与实物有一定色差，一切以实物为准。 <br>
+				    				温馨提示： 为保障您的权益，请在签收商品前与配送员当面核对商品种类、数量、规格、赠品、金额是否与订单一致，产品包装是否完好无损， 准确无误再进行签收。
+				    				</p>
+								</div>                        
+								<div class="regist_survey">
+				              		<form action="" method="post" name="theform">
+				                		<p class="red_txt">这条帮助是否解决了您的问题？</p>
+				                		<p class="p_line">&nbsp;</p>
+				                		<p class="p_line">&nbsp;</p>
+				                		<div style="font-size: 12px; float:left">
+				                			<input type="radio" name="is_result" class="resolve_radio" value="0" checked="checked">已解决
+				                		</div>
+				                		<div style="font-size: 12px; float:left;margin-left:20px;">
+				                 			<input type="radio" name="is_result" value="02" class="resolve_radio">未解决
+				               		 	</div>
+				                		<p class="p_line">&nbsp;</p>
+				                		<div class="unresolve">
+				                  			<p>问题没解决？请选择原因:</p>
+				                  			<div class="reason">
+							                    <input type="radio" name="answer" value="文字太多，阅读困难" checked="checked">文字太多，阅读困难
+							                    <input type="radio" name="answer" value="内容复杂，看不懂">内容复杂，看不懂
+							                    <input type="radio" name="answer" value="描述不清楚">描述不清楚
+							                    <input type="radio" name="answer" value="1">其它原因
+				                  			</div>
+				                  			<p style="line-height:25px;">也可以直接填写原因或联系客服处理：</p>
+						                  	<p><textarea class="texta_reason" name="answer_txt"></textarea></p>
+				                		</div>
+				                		<div class="reason_btn_div">
+				                  			<input type="hidden" name="article_id" value="728">
+				                    		<input class="reason_btn" type="button">
+				                  		</div>
+				              		</form>
+				            	</div>
+				            </div>
+				      	</div>
+				    </div>
+        		</li>
+        		
+        	</ul>
+        </div>
+        
+        <!-- 弹窗提示 -->
+        <div class="toolTip_box">
+        	<h3>提示信息<b>&times;</b></h3>
+        	<p>对不起，该商品已经库存不足或暂停销售。 你现在要进行缺货登记来预订该商品吗？</p>
+        	<div>确认</div>
+        </div>
+        
+        <div class="addSucceed">
+        	<h3>该商品已经成功添加到购物车<b>&times;</b></h3>
+        	<a href="cart.html">
+        		<img src="img/goodsinfo/GuyCAR_buyCart.png"/>
+        	</a>
+        	<img src="img/goodsinfo/jxgw.png"/>
+        </div>
+        
+        <!-- footer -->
+	    <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	    <div class="footer_info">
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 0px 0px;"></h4>
+	    		<ul>
+	    			<li>用户注册</li>
+	    			<li>购物流程</li>
+	    			<li>网站导航</li>
+	    			<li>帮助中心</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat -2px -34px;"></h4>
+	    		<ul>
+	    			<li>在线支付</li>
+	    			<li>货到付款</li>
+	    			<li>扫码支付</li>
+	    			<li>优惠券支付</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 10px -66px;"></h4>
+	    		<ul>
+	    			<li>配送说明</li>
+	    			<li>运费说明</li>
+	    			<li>验货签收</li>
+	    			<li>货到付款</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 3px -99px;"></h4>
+	    		<ul>
+	    			<li>退换货政策</li>
+	    			<li>退换货流程</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 2px -133px;"></h4>
+	    		<ul>
+	    			<li>会员制度</li>
+	    			<li>会员积分</li>
+	    			<li>好评有礼</li>
+	    		</ul>
+	    	</div>
+	    	<div class="info_column">
+	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 1px -197px;"></h4>
+	    		<ul>
+	    			<li>品牌故事</li>
+	    			<li>媒体报道</li>
+	    			<li>诚聘英才</li>
+	    			<li>联系我们</li>
+	    		</ul>
+	    	</div>
+	    </div>
+	    
+	    <img style="margin: 24px 0 0 169px;" src="img/index_img/feature1.png"/>
+	    
+	    <div class="footer_black">
+	    	<ul>
+	    		<li>首页</li><s> 丨 </s>
+	    		<li>品牌故事</li><s> 丨 </s>
+	    		<li>诚聘英才</li><s> 丨 </s>
+	    		<li>媒体报道</li><s> 丨 </s>
+	    		<li>联系我们</li><s> 丨 </s>
+	    		<li>网站地图</li><s> 丨 </s>
+	    		<li>友情链接</li>
+	    	</ul>
+	    </div>
+	    
+	    <div class="copyright">
+	    	<div>
+	    		<img src="img/index_img/copyright.gif"/>鲁ICP备14003322号-2 © 2006-2015 handu.com All Rights Reserved.
+	    		<img src="img/index_img/beiantubiao.png"/>鲁公网安备 37010202000113号 山东韩都衣舍电商集团有限公司，禁止非法复制
+	    		<img src="img/index_img/pic.gif"/>
+	    	</div>
+	    </div>
+	    
+	    <center>
+	    	<img src="img/index_img/zxmbutton02_sy.jpg"/>
+	    	<img src="img/index_img/zxmbutton05_sy.jpg"/>
+	    	<img style="width: 102px; height: 38px;" src="img/index_img/cnnic.png"/>
+	    	<img style="height: 38px;" src="img/index_img/cctv.png"/>
+	    </center>
+	    
+	    <!-- 右侧悬浮 -->
+	    <script type="text/javascript">
+	    	$(function(){
+	    		$('.float_box ul li').hover(function(){
+	    			$(this).css('background-position-x','-78px');
+	    		},function(){
+	    			$(this).css('background-position-x','0px');
+	    		})
+	    		
+	    		$(window).scroll(function(){
+	    			var currentTop = $(this).scrollTop();
+	    			
+	    			if( currentTop>=$('.goods_attr:eq(1)').offset().top ){
+	    				
+	    				$('.float_box').show();
+	    			}else{
+	    				$('.float_box').hide();
+	    			}
+	    			
+	    			//商品详情导航悬浮 
+	    			if( currentTop>=$('#flat_tab').offset().top ){
+	    				$('#J_TabBarBox').addClass('nav-fixed');
+	    			}else{
+	    				$('#J_TabBarBox').removeClass('nav-fixed');
+	    			}
+	    			
+	    			
+	    			
+	    		});
+	    		
+	    		$('.float_box ul li:last').click(function(){
+	    			$('body,html').animate({
+						"scrollTop" :  0
+					},500)
+	    		})
+	    		
+	    		$('.float_box li:first').click(function(){
+	    			location.href = "cart.html";
+	    		})
+	    	})
+	    </script>
+	    <div class="float_box">
+	    	<ul>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -164px;"></li>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -242px;"></li>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -320px;"></li>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -399px;"></li>
+	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -478px;"></li>
+	    	</ul>
+	    </div>
+        
+	</body>
+</html>

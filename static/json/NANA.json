@@ -1,0 +1,49 @@
+
+[
+	{	
+		"H_list":["衬衫","套装","裙装","裤装","T恤","更多>"],
+		"s_img_img":"img/index_img/1473844515129901141.jpg",
+		"s_img_div":"新品主义",
+		"s_img_span":" > ",
+		"s_cate1":["裙装","裤装","短外套","T恤","卫衣/绒衣"],
+		"s_cate2":["【活动】","娜娜日记-韩风甜美少女装"],
+		"fl_img":"img/index_img/1473128523832563392.jpg",
+		"fl_img21":"img/index_img/1474162303514841236.jpg",
+		"fl_img22":"img/index_img/1474163664361342188.jpg",
+		"fl_img23":"img/index_img/1474163383120353066.jpg",
+		"HSTYLE_list":[
+			{
+			    "id": 46,
+				"img": "img/index_img/1049069_thumb_G_1473844943239.jpg",
+				"price":"￥148.00",
+				"del_price":"￥278.00",
+				"buy":"立即抢购"
+			},
+			{
+			    "id": 47,
+				"img": "img/index_img/1047222_thumb_G_1473842968874.jpg",
+				"price":"￥139.00",
+				"del_price":"￥248.00",
+				"buy":"立即抢购"
+			},{
+			    "id": 48,
+				"img": "img/index_img/1047212_thumb_G_1473843018329.jpg",
+				"price":"￥119.00",
+				"del_price":"￥228.00",
+				"buy":"立即抢购"
+			},{
+			    "id": 49,
+				"img": "img/index_img/1046318_thumb_G_1473843818947.jpg",
+				"price":"￥125.00",
+				"del_price":"￥228.00",
+				"buy":"立即抢购"
+			},{
+			    "id": 50,
+				"img": "img/index_img/1046131_thumb_G_1473843851049.jpg",
+				"price":"￥98.00",
+				"del_price":"￥168.00",
+				"buy":"立即抢购"
+			}
+		]
+	}
+]

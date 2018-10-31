@@ -1,0 +1,46 @@
+
+
+.xf_search {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: url(../img/index_img/sbg.png) repeat-x;
+    position: fixed;
+    top: 0;
+    display: none;
+    z-index: 10000;
+}
+.xf_search img {
+	float: left;
+	margin: 5px 0 0 124px;
+}
+.xf_search_s {
+	overflow: hidden;
+	float: left;
+}
+.xf_search_s input {
+	width: 646px;
+	height: 28px;
+	float: left;
+	margin: 8px 0 0 90px;
+}
+.xf_search_s button {
+	width: 87px;
+	height: 31px;
+	line-height: 31px;
+	background: #C80A28;
+	color: white;
+	border: none;
+	float: left;
+	margin-top: 9px;
+	cursor: pointer;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+.xf_font {
+	float: left;
+	font-size: 12px;
+	color: white;
+	margin-left: 85px;
+}
+
