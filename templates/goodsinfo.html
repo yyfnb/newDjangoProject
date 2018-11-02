@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,9 +9,10 @@
 				min-height: 1200px !important;
 			}
 		</style>
-		<link rel="stylesheet" type="text/css" href="css/header.css"/>
-		<script src="js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="/static/css/header.css"/>
+		<script src="/static/js/jquery-1.12.3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/static/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/static/js/test.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function(){
 				var userMsg = $.cookie("userMsg");
@@ -31,7 +33,7 @@
 		</script>
 	</head>
 	<body>
-		<!-- Header -->	
+    <!-- Header -->
 		<script type="text/javascript">
 			$(function(){
 				$('#global_left li:first').click(function(){
@@ -42,7 +44,7 @@
 		<div id="global_nav">
 			<div id="global_left">
 				<ul>
-					<li style="color: red; font-weight: bold;">返回首页</li>
+					<li style="color: red; font-weight: bold;"><a href="{% url 'app:index' %}">返回首页</a></li>
 					<li>收藏网站</li>
 				</ul>
 			</div>
@@ -50,7 +52,7 @@
 				<ul>
 					<li style="width: 155px;">您好，欢迎光临韩都衣舍！</li>
 					<li><a href="login.html">登录</a></li>
-					<li><a href="register.html"  style="color: red;">注册</a></li>
+					<li><a href="register.html" style="color: red;">注册</a></li>
 					<li style="width: 40px;"><a href="cart.html">购物车</a></li>
 				</ul>
 			</div>
@@ -63,7 +65,7 @@
 				</ul>
 			</div>
 		</div>
-		
+
 		<script type="text/javascript">
 		$(function(){
 			$("#list_right ul li").eq(2).hover(function(){
@@ -130,7 +132,7 @@
 				</ul>
 			</div>
 		</div>
-		
+
 		<script type="text/javascript">
 			$(function(){
 				$('.hdtop_logo').click(function(){
@@ -142,7 +144,7 @@
 			<div class="hdtop_logo"></div>
 			<div class="hd_search">
 				<div class="hdi_search">
-					<input type="text" id="" value="" />
+					<input type="text" id="" value="">
 					<button>搜   索</button>
 				</div>
 				<div class="hotwords">
@@ -156,9 +158,9 @@
 					</ul>
 				</div>
 			</div>
-			<img src="img/index_img/ewm.png"/>
+			<img src="{% static  'img/index_img/ewm.png'  %}">
 		</div>
-		
+
 		<div class="yNavIndex">
 			<div style="width: 100%;height: 12px;">
 				<span style="float: right; font-size: 12px; margin-right: 162px; color: red; font-weight:bold ;">下载APP即送壕礼</span>
@@ -171,8 +173,8 @@
 					<li>团购批发</li>
 				</ul>
 				<ul class="nav_right">
-					<li style="width: 105px;">会员俱乐部 <img src="img/index_img/sjt.png"/></li>
-					<li style="width: 98px;">韩都咨询 <img src="img/index_img/sjt.png"/></li>
+					<li style="width: 105px;">会员俱乐部 <img src="{% static  'img/index_img/sjt.png'  %}"></li>
+					<li style="width: 98px;">韩都咨询 <img src="{% static  'img/index_img/sjt.png'  %}"></li>
 					<li>招兵买马</li>
 				</ul>
 				<ul class="vip" style="display: none;">
@@ -187,16 +189,16 @@
 					$(function(){
 						$(".nav_right li").eq(0).hover(function(){ $(".vip").show(); },function(){ $(".vip").hide(); })
 						$(".vip").hover(function(){ $(".vip").show(); },function(){ $(".vip").hide(); })
-						
+
 						$(".nav_right li").eq(1).hover(function(){ $(".hd_news").show(); },function(){ $(".hd_news").hide(); })
 						$(".hd_news").hover(function(){ $(".hd_news").show(); },function(){ $(".hd_news").hide(); })
 					})
 				</script>
 			</div>
-		</div>	
+		</div>
 	<!-- 商品分类  -->
-	<link rel="stylesheet" type="text/css" href="css/lunbo_goods.css"/>
-    <script src="js/goods_classify.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/lunbo_goods.css">
+    <script src="/static/js/goods_classify.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
     	$(function(){
     		$('.pullDTitle').hover(function(){
@@ -204,7 +206,7 @@
     		},function(){
     			$('#goods_classify').hide();
     		})
-    		
+
     		$('#goods_classify').hover(function(){
     			$('#goods_classify').show();
     		},function(){
@@ -215,42 +217,42 @@
         <div id="goods_classify" style="display: none;">
         	<ul>
         		<li>
-        			<h4><img src="img/index_img/tb1.png"/>  全部商品分类</h4>
+        			<h4><img src="{% static  'img/index_img/tb1.png'  %}">  全部商品分类</h4>
         			<a href="">本周新品</a>
         			<a href="">按价格</a>
         			<a href="">按销量</a>
         			<span></span>
         		</li>
         		<li>
-        			<h4><img src="img/index_img/tb2.png"/>  精选推荐</h4>
+        			<h4><img src="{% static  'img/index_img/tb2.png'  %}">  精选推荐</h4>
         			<a href="" class="red">连衣裙</a>
         			<a href="">潮流爆款</a>
         			<a href="">秋季风格</a>
         			<span></span>
         		</li>
         		<li>
-        			<h4><img src="img/index_img/tb3.png"/>  潮流女装</h4>
+        			<h4><img src="{% static  'img/index_img/tb3.png'  %}">  潮流女装</h4>
         			<a href="" class="red">T恤</a>
         			<a href="">连衣裙</a>
         			<a href="">牛仔裤</a>
         			<span></span>
         		</li>
         		<li>
-        			<h4><img src="img/index_img/tb4.png"/>  精品男装</h4>
+        			<h4><img src="{% static  'img/index_img/tb4.png'  %}">  精品男装</h4>
         			<a href="" class="red">T恤</a>
         			<a href="">衬衫</a>
         			<a href="">裤装</a>
         			<span></span>
         		</li>
         		<li>
-        			<h4><img src="img/index_img/tb5.png"/>  可爱童装</h4>
+        			<h4><img src="{% static  'img/index_img/tb5.png'  %}">  可爱童装</h4>
         			<a href="">童装新品</a>
         			<a href="" class="red">裙装</a>
         			<a href="">毛衣/针织衫</a>
         			<span></span>
         		</li>
         		<li>
-        			<h4><img src="img/index_img/tb6.png"/>  时尚妈妈</h4>
+        			<h4><img src="{% static  'img/index_img/tb6.png'  %}">  时尚妈妈</h4>
         			<a href="">T恤</a>
         			<a href="">连衣裙</a>
         			<a href="">裤装</a>
@@ -258,41 +260,41 @@
         			<span></span>
         		</li>
         		<li>
-        			<h4><img src="img/index_img/tb7.png"/>  鞋包配饰</h4>
+        			<h4><img src="{% static  'img/index_img/tb7.png'  %}">  鞋包配饰</h4>
         			<a href="" class="red">鞋子</a>
         			<a href="">鞋包</a>
         			<span></span>
         		</li>
         	</ul>
-        	
+
         	<div name="xt" class="itemtc_h" style="display: none;">
         		<div class="itemtcul_h">
         			<div style="width: 70px; height: 423px; margin-left: 37px;">
-        				<img src="img/index_img/nana.png"/>
-        				<img src="img/index_img/hstyle.png"/>
-        				<img src="img/index_img/forqueen.png"/>
-        				<img src="img/index_img/soneed.png"/>
-        				<img src="img/index_img/hanyunyixiang.png"/>
-        				<img src="img/index_img/ytxz.png"/>
-        				<img src="img/index_img/nibbuns.png"/>
-        				<img src="img/index_img/cx.png"/>
-        				<img src="img/index_img/bly.png"/>
+        				<img src="{% static  'img/index_img/nana.png'  %}">
+        				<img src="{% static  'img/index_img/hstyle.png'  %}">
+        				<img src="{% static  'img/index_img/forqueen.png'  %}">
+        				<img src="{% static  'img/index_img/soneed.png'  %}">
+        				<img src="{% static  'img/index_img/hanyunyixiang.png'  %}">
+        				<img src="{% static  'img/index_img/ytxz.png'  %}">
+        				<img src="{% static  'img/index_img/nibbuns.png'  %}">
+        				<img src="{% static  'img/index_img/cx.png'  %}">
+        				<img src="{% static  'img/index_img/bly.png'  %}">
         			</div>
 	        		<div style="width: 70px; height: 423px;">
-	        			<img src="img/index_img/laola.png"/>
-	        			<img src="img/index_img/sulv.png"/>
-	        			<img src="img/index_img/zc.png"/>
-	        			<img src="img/index_img/amh.png"/>
-	        			<img src="img/index_img/anma.png"/>
-	        			<img src="img/index_img/zg.png"/>
-	        			<img src="img/index_img/mini.png"/>
-	        			<img src="img/index_img/hp.png"/>
-	        			<img src="img/index_img/dx1.png"/>
+	        			<img src="{% static  'img/index_img/laola.png'  %}">
+	        			<img src="{% static  'img/index_img/sulv.png'  %}">
+	        			<img src="{% static  '/img/index_img/zc.png'  %}">
+	        			<img src="{% static  '/img/index_img/amh.png'  %}">
+	        			<img src="{% static  '/img/index_img/anma.png'  %}">
+	        			<img src="{% static  '/img/index_img/zg.png'  %}">
+	        			<img src="{% static  '/img/index_img/mini.png'  %}">
+	        			<img src="{% static  '/img/index_img/hp.png'  %}">
+	        			<img src="{% static  '/img/index_img/dx1.png'  %}">
 	        		</div>
-	        		<div><img src="img/index_img/guoya.png"/></div>
+	        		<div><img src="{% static  '/img/index_img/guoya.png'  %}"></div>
         		</div>
         	</div>
-        	
+
         	<div name="xt" id="handpick" style="display: none;">
         		<div class="">
         			<h4>特惠精选</h4>
@@ -353,7 +355,7 @@
         			<a class="red" href="">轻时尚简约-哲初</a>
         		</div>
         	</div>
-        	
+
         	<div name="xt" class="women_dress" style="display: none;">
         		<div style="height: 61px;" class="">
         			<h4>韩风时尚HSTYLE</h4>
@@ -419,20 +421,20 @@
         			<a href="">裤装</a>
         		</div>
         		<div style="border: none;">
-        			<img src="img/index_img/hstyle.png"/>
-        			<img src="img/index_img/sulv.png"/>
-        			<img src="img/index_img/soneed.png"/>
-        			<img src="img/index_img/nibbuns.png"/>
-        			<img src="img/index_img/forqueen.png"/>
-        			<img src="img/index_img/nana.png"/>
-        			<img src="img/index_img/ytxz.png"/>
-        			<img src="img/index_img/laola.png"/>
-        			<img src="img/index_img/bly.png"/>
-        			<img src="img/index_img/zc.png"/>
-        			<img src="img/index_img/cx.png"/>
+        			<img src="{% static  '/img/index_img/hstyle.png'  %}">
+        			<img src="{% static  '/img/index_img/sulv.png'  %}">
+        			<img src="{% static  '/img/index_img/soneed.png'  %}">
+        			<img src="{% static  '/img/index_img/nibbuns.png'  %}">
+        			<img src="{% static  '/img/index_img/forqueen.png'  %}">
+        			<img src="{% static  '/img/index_img/nana.png'  %}">
+        			<img src="{% static  '/img/index_img/ytxz.png'  %}">
+        			<img src="{% static  '/img/index_img/laola.png'  %}">
+        			<img src="{% static  '/img/index_img/bly.png'  %}">
+        			<img src="{% static  '/img/index_img/zc.png'  %}">
+        			<img src="{% static  '/img/index_img/cx.png'  %}">
         		</div>
         	</div>
-        	
+
         	<div name="xt" class="man_clothing" style="display: none;">
         		<div style="height: 80px;" class="">
         			<h4>韩风时尚AMH</h4>
@@ -473,12 +475,12 @@
         			<a href="">休闲裤</a>
         		</div>
         		<div style="border: none;">
-        			<img src="img/index_img/amh.png"/>
-        			<img src="img/index_img/anma.png"/>
-        			<img src="img/index_img/zg.png"/>
+        			<img src="{% static  '/img/index_img/amh.png'  %}">
+        			<img src="{% static  '/img/index_img/anma.png'  %}">
+        			<img src="{% static  '/img/index_img/zg.png'  %}">
         		</div>
         	</div>
-        	
+
         	<div name="xt" class="kids" style="display: none;">
         		<div style="height: 80px;" class="">
         			<h4>韩风时尚Minizaru</h4>
@@ -526,13 +528,13 @@
         			<a href="">棉衣/棉服</a>
         		</div>
         		<div style="border: none;">
-        			<img src="img/index_img/mini.png"/>
-        			<img src="img/index_img/hp.png"/>
-        			<img src="img/index_img/guoya.png"/>
-        			<img src="img/index_img/dx1.png"/>
+        			<img src="{% static  '/img/index_img/mini.png'  %}">
+        			<img src="{% static  '/img/index_img/hp.png'  %}">
+        			<img src="{% static  '/img/index_img/guoya.png'  %}">
+        			<img src="{% static  '/img/index_img/dx1.png'  %}">
         		</div>
         	</div>
-        	
+
         	<div name="xt" class="mama" style="display: none;">
         		<div style="height: 61px;" class="">
         			<h4>妈妈装</h4>
@@ -549,40 +551,40 @@
         			<a href="">套装</a>
         		</div>
         		<div style="border: none;">
-        			<img src="img/index_img/hanyunyixiang.png"/>
+        			<img src="{% static  '/img/index_img/hanyunyixiang.png'  %}">
         		</div>
         	</div>
-        	
+
         </div>
-        
+
         <!-- 商品详情 -->
-        <link rel="stylesheet" type="text/css" href="css/goodsinfo.css"/>
-        <script src="js/goodsinfo.js" type="text/javascript" charset="utf-8"></script>
-        
+        <link rel="stylesheet" type="text/css" href="/static/css/goodsinfo.css">
+        <script src="/static/js/goodsinfo.js" type="text/javascript" charset="utf-8"></script>
+
         <div class="handu_crumb" id="detail_crumb">
         	您所在的位置
-        	<code> ></code><a href="">韩都衣舍</a>
+        	<code> &gt;</code><a href="">韩都衣舍</a>
         </div>
-        
+
         <div class="side_bar">
         	<ul id="cate_guide">
         		<h1>商品分类</h1>
         	</ul>
-        	<img src="img/goodsinfo/1470880931507587404.png"/>
+        	<img src="{% static  '/img/goodsinfo/1470880931507587404.png'  %}">
         	<div class="share new_goods">
         		<h1></h1>
         		<ul>
         		</ul>
         	</div>
-        	
+
         	<div class="share hot_goods">
         		<h1></h1>
         		<ul>
         		</ul>
         	</div>
-        	<img src="img/goodsinfo/1439186924043865480.jpg"/>
+        	<img src="{% static  '/img/goodsinfo/1439186924043865480.jpg'  %}">
         </div>
-        
+
         <div class="detail_top">
         	<div class="goods_detail_left">
         		<div class="zoomPad">
@@ -604,12 +606,12 @@
         			<a href="">0</a>
         		</div>
         	</div>
-        	
+
         	<div class="gooods_detail_right">
         		<div class="product_detail_info">
         			<h1></h1>
         			<ul>
-        				<li>商品货号：&nbsp;  
+        				<li>商品货号：&nbsp;
         					<span class="code"></span>
         					&nbsp;&nbsp;&nbsp;&nbsp;售价：
         					<del class="market_price"></del>
@@ -617,7 +619,7 @@
         				<li>促  销  价：
         					<em class="promotionPrice"></em>
         				</li>
-        				<li>销&nbsp;&nbsp;量：&nbsp;  
+        				<li>销&nbsp;&nbsp;量：&nbsp;
         					<span class="sales"></span>
         				</li>
         				<li>用户评分：
@@ -626,7 +628,7 @@
         				</li>
         			</ul>
         		</div>
-        		<div class="product_detail_info"  style="padding-bottom: 0;">
+        		<div class="product_detail_info" style="padding-bottom: 0;">
         			<div class="goods_attr text">
         				<span class="label">尺码<b>：</b></span>
         				<ul class="size">
@@ -638,14 +640,14 @@
         				</ul>
         			</div>
         		</div>
-        		
+
         		<div class="product_detail_info">
         			<div class="set">
         				<span class="label">数量<b>：</b></span>
         				<span class="amount-widget">
         					<span class="increase">+</span>
         					<span class="decrease">-</span>
-        					<input type="text" id="" value="1" />
+        					<input type="text" id="" value="1">
         				</span>
         				<span class="goodsInventory">
         					<font class="inventory" total="167">（库存<b></b>件）</font>
@@ -661,7 +663,7 @@
                 		<a class="fl detail_btn addCart" title="加入购物车"></a>
                     </p>
         		</div>
-        		
+
         		<div class="product_detail_info" style="border-bottom: none;">
         			<div class="extra_info">
         				<ul class="line1">
@@ -672,7 +674,7 @@
         					<li class="et_weixian" style="margin-left:30px;">
 	                            <span>官方微信:</span>
 	                            <span class="et_icon"></span>
-	                    		<img src="img/goodsinfo/sys.gif" class="sao">
+	                    		<img src="{% static  'img/goodsinfo/sys.gif'  %}" class="sao">
                     		</li>
         				</ul>
         				<div class="goods_payway line2">
@@ -687,10 +689,10 @@
                			</div>
         			</div>
         		</div>
-        		
+
         	</div>
         </div>
-        
+
         <div id="flat_tab" class="fr">
         	<div id="J_TabBarBox">
         		<ul id="J_TabBar" class="tabbar tm-clear">
@@ -718,7 +720,7 @@
         		</li>
         		<li style="display: none;" class="Li">
         			<ul class="New_goodCONPLlist">
-        				
+
         			</ul>
         		</li>
         		<!-- 常见问题 -->
@@ -734,7 +736,7 @@
 				            		<form id="searchForm" name="searchForm" method="get" action="/helpercenter.php">
 				              			<input type="hidden" name="act" value="search">
 				              			<input id="hpr_searchinput" class="hpr_searchinput" title="search" size="10" name="keywords">
-				              			<input class="hpr_searchaction" border="0" hspace="2" alt="search" src="img/goodsinfo/hr_searchbtn.png" type="image">
+				              			<input class="hpr_searchaction" alt="search" src="/static/img/goodsinfo/hr_searchbtn.png" type="image" hspace="2" border="0">
 				            		</form>
 				         		 </div>
 				          		<div class="hpr_hotSearch">
@@ -748,11 +750,11 @@
 				        	<div class="service_call">
 				          		<div class="service_callNum" style="margin-right:-17px;">400-806-7777</div>
 				        	</div>
-				      	</div>      
+				      	</div>
 				      	<div class="hpr_content">
 				        	<div class="hpr_crumbs">
 				           		<span class="red_current"><a href="helper.html">帮助中心首页</a></span>
-				          		<span>网店帮助分类</span>&gt;<span>会员中心</span>&gt;<span>常见问题</span>        
+				          		<span>网店帮助分类</span>&gt;<span>会员中心</span>&gt;<span>常见问题</span>
 				        	</div>
 				        	<div class="hpr_txt">
 				            	<div class="hpr_txt_themes">会员中心</div>
@@ -762,10 +764,10 @@
 				    				<p>韩都衣舍为您提供在线支付、网上银行、货到付款等多种支付方式，可满足您不同的支付需求。</p>
 				    				<h5><strong>1.在线支付</strong></h5>
 				    				<p>韩都衣舍为您提供支付宝支付、网上银行两种在线支付方式，几乎涵盖所有大中型银行发行的银行卡，覆盖率达98%。选择在线支付，您的银行卡需要开通相应的网上银行业务。</p>
-				    				<img src="img/goodsinfo/zhifu_list.png" alt="" style="margin-right:30px;"> 
+				    				<img src="{% static  '/static/img/goodsinfo/zhifu_list.png'  %}" alt="" style="margin-right:30px;">
 									<h5><strong>2.货到付款</strong></h5>
 				    				<p>货到付款是韩都衣舍配送员送货上门，客户收单验货后，直接将货款交给配送员的一种结算方式。</p>
-				    				<p><strong>更多支付方式问题请查看 <a href="/helper-22-121.html#xx_121" target="_blank">在线支付</a></strong></p> 
+				    				<p><strong>更多支付方式问题请查看 <a href="/helper-22-121.html#xx_121" target="_blank">在线支付</a></strong></p>
 				    				<br><br>
 				    				<p class="p_title red_txt">退换货政策</p>
 				    				<p>
@@ -797,7 +799,7 @@
 								    &nbsp;8.图片及信息仅供参照，因拍摄灯光及不同显示器色差等问题可能造成商品图片与实物有一定色差，一切以实物为准。 <br>
 				    				温馨提示： 为保障您的权益，请在签收商品前与配送员当面核对商品种类、数量、规格、赠品、金额是否与订单一致，产品包装是否完好无损， 准确无误再进行签收。
 				    				</p>
-								</div>                        
+								</div>
 								<div class="regist_survey">
 				              		<form action="" method="post" name="theform">
 				                		<p class="red_txt">这条帮助是否解决了您的问题？</p>
@@ -831,30 +833,30 @@
 				      	</div>
 				    </div>
         		</li>
-        		
+
         	</ul>
         </div>
-        
+
         <!-- 弹窗提示 -->
         <div class="toolTip_box">
-        	<h3>提示信息<b>&times;</b></h3>
+        	<h3>提示信息<b>×</b></h3>
         	<p>对不起，该商品已经库存不足或暂停销售。 你现在要进行缺货登记来预订该商品吗？</p>
         	<div>确认</div>
         </div>
-        
+
         <div class="addSucceed">
-        	<h3>该商品已经成功添加到购物车<b>&times;</b></h3>
+        	<h3>该商品已经成功添加到购物车<b>×</b></h3>
         	<a href="cart.html">
-        		<img src="img/goodsinfo/GuyCAR_buyCart.png"/>
+        		<img src="{% static  '/static/img/goodsinfo/GuyCAR_buyCart.png'  %}">
         	</a>
-        	<img src="img/goodsinfo/jxgw.png"/>
+        	<img src="{% static  '/static/img/goodsinfo/jxgw.png'  %}">
         </div>
-        
+
         <!-- footer -->
-	    <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	    <link rel="stylesheet" type="text/css" href="/static/css/footer.css">
 	    <div class="footer_info">
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 0px 0px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 0px 0px;"></h4>
 	    		<ul>
 	    			<li>用户注册</li>
 	    			<li>购物流程</li>
@@ -863,7 +865,7 @@
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat -2px -34px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat -2px -34px;"></h4>
 	    		<ul>
 	    			<li>在线支付</li>
 	    			<li>货到付款</li>
@@ -872,7 +874,7 @@
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 10px -66px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 10px -66px;"></h4>
 	    		<ul>
 	    			<li>配送说明</li>
 	    			<li>运费说明</li>
@@ -881,14 +883,14 @@
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 3px -99px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 3px -99px;"></h4>
 	    		<ul>
 	    			<li>退换货政策</li>
 	    			<li>退换货流程</li>
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 2px -133px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 2px -133px;"></h4>
 	    		<ul>
 	    			<li>会员制度</li>
 	    			<li>会员积分</li>
@@ -896,7 +898,7 @@
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 1px -197px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 1px -197px;"></h4>
 	    		<ul>
 	    			<li>品牌故事</li>
 	    			<li>媒体报道</li>
@@ -905,9 +907,9 @@
 	    		</ul>
 	    	</div>
 	    </div>
-	    
-	    <img style="margin: 24px 0 0 169px;" src="img/index_img/feature1.png"/>
-	    
+
+	    <img style="margin: 24px 0 0 169px;" src="{% static  '/static/img/index_img/feature1.png'  %}">
+
 	    <div class="footer_black">
 	    	<ul>
 	    		<li>首页</li><s> 丨 </s>
@@ -919,22 +921,22 @@
 	    		<li>友情链接</li>
 	    	</ul>
 	    </div>
-	    
+
 	    <div class="copyright">
 	    	<div>
-	    		<img src="img/index_img/copyright.gif"/>鲁ICP备14003322号-2 © 2006-2015 handu.com All Rights Reserved.
-	    		<img src="img/index_img/beiantubiao.png"/>鲁公网安备 37010202000113号 山东韩都衣舍电商集团有限公司，禁止非法复制
-	    		<img src="img/index_img/pic.gif"/>
+	    		<img src="{% static  '/static/img/index_img/copyright.gif'  %}">鲁ICP备14003322号-2 © 2006-2015 handu.com All Rights Reserved.
+	    		<img src="{% static  '/static/img/index_img/beiantubiao.png'  %}">鲁公网安备 37010202000113号 山东韩都衣舍电商集团有限公司，禁止非法复制
+	    		<img src="{% static  '/static/img/index_img/pic.gif'  %}">
 	    	</div>
 	    </div>
-	    
+
 	    <center>
-	    	<img src="img/index_img/zxmbutton02_sy.jpg"/>
-	    	<img src="img/index_img/zxmbutton05_sy.jpg"/>
-	    	<img style="width: 102px; height: 38px;" src="img/index_img/cnnic.png"/>
-	    	<img style="height: 38px;" src="img/index_img/cctv.png"/>
+	    	<img src="{% static  '/static/img/index_img/zxmbutton02_sy.jpg'  %}">
+	    	<img src="{% static  '/static/img/index_img/zxmbutton05_sy.jpg'  %}">
+	    	<img style="width: 102px; height: 38px;" src="{% static  '/static/img/index_img/cnnic.png'  %}">
+	    	<img style="height: 38px;" src="{% static  '/static/img/index_img/cctv.png'  %}">
 	    </center>
-	    
+
 	    <!-- 右侧悬浮 -->
 	    <script type="text/javascript">
 	    	$(function(){
@@ -943,34 +945,34 @@
 	    		},function(){
 	    			$(this).css('background-position-x','0px');
 	    		})
-	    		
+
 	    		$(window).scroll(function(){
 	    			var currentTop = $(this).scrollTop();
-	    			
+
 	    			if( currentTop>=$('.goods_attr:eq(1)').offset().top ){
-	    				
+
 	    				$('.float_box').show();
 	    			}else{
 	    				$('.float_box').hide();
 	    			}
-	    			
-	    			//商品详情导航悬浮 
+
+	    			//商品详情导航悬浮
 	    			if( currentTop>=$('#flat_tab').offset().top ){
 	    				$('#J_TabBarBox').addClass('nav-fixed');
 	    			}else{
 	    				$('#J_TabBarBox').removeClass('nav-fixed');
 	    			}
-	    			
-	    			
-	    			
+
+
+
 	    		});
-	    		
+
 	    		$('.float_box ul li:last').click(function(){
 	    			$('body,html').animate({
 						"scrollTop" :  0
 					},500)
 	    		})
-	    		
+
 	    		$('.float_box li:first').click(function(){
 	    			location.href = "cart.html";
 	    		})
@@ -978,13 +980,12 @@
 	    </script>
 	    <div class="float_box">
 	    	<ul>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -164px;"></li>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -242px;"></li>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -320px;"></li>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -399px;"></li>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -478px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -164px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -242px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -320px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -399px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -478px;"></li>
 	    	</ul>
 	    </div>
-        
-	</body>
+    </body>
 </html>

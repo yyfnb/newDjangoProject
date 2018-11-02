@@ -1,24 +1,28 @@
 
 	$(function(){
-		
-		$.get("json/lunbo.json", function(data){
+
+		$.get("/static/json/lunbo.json", function(data){
+
 			//2, 显示数据到页面上
 			//遍历data数组, 将每个图片显示在页面上
 			for (var i=0; i<data.length; i++) {
-				var obj = data[i]; 
+				var obj = data[i];
 				var img = obj.img; //img
 				var id = obj.id; //id
-				var word = obj.word //word			
+				var word = obj.word //word
 				//将创建的节点添加到页面上
 				$("#bigpic").append( "<li><img src=" + img +" /></li>" );
 				$("#smallpic").append( "<li>" + word + "</li>" );
-	
+
 			    $("#bigpic").find('img:eq(2)').css("margin-left","300px");
+
+
 			}
 			//开启自动轮播
 			lunbo();
+
 		});
-		
+
 		function lunbo(){
             // 2）用jquery选择器获取页面元素
             var $focus = $('#focus');
@@ -32,11 +36,13 @@
             // 3）使用jquery事件与动画
             var timer = setInterval(animation,3000);
 
+
             // 鼠标移入停止，移除继续
             $focus.on('mouseenter',function(){
                 clearInterval(timer);
             }).on('mouseleave',function(){
                 timer = setInterval(animation,3000);
+
             });
 
             // 点击小图切换效果
@@ -73,6 +79,7 @@
                 $smallpic.children('li').eq(index).css({color:'white',background:'#333333'}).siblings().css({color:'black',background:'white'});
             }
         }
-		
+
     });
+
 

@@ -45,16 +45,16 @@
 		<div id="global_nav">
 			<div id="global_left">
 				<ul>
-					<li style="color: red; font-weight: bold;">返回首页</li>
+					<li style="color: red; font-weight: bold;"><a href="{% url 'app:index' %}">返回首页</a></li>
 					<li>收藏网站</li>
 				</ul>
 			</div>
 			<div id="global_right">
 				<ul>
-					<li style="width: 155px;">您好，欢迎光临韩都衣舍！</li>
-					<li><a href="login.html">登录</a></li>
-					<li><a href="register.html" style="color: red;">注册</a></li>
-					<li style="width: 40px;"><a href="cart.html">购物车</a></li>
+					<li style="width: 155px;">您好，{{ email }}欢迎光临韩都衣舍！</li>
+					<li><a href="{% url 'app:login' %}">登录</a></li>
+					<li><a href="{% url 'app:register' %}" style="color: red;">注册</a></li>
+					<li style="width: 40px;"><a href="{% url 'app:cart' %}">购物车</a></li>
 				</ul>
 			</div>
 			<div style="float: left; margin: 6px 4px 0 0; color: #DDDDDD;"> 丨 </div>
@@ -134,8 +134,8 @@
 			</div>
 		</div>
 		<!-- 购物车 -->
-		<link rel="stylesheet" type="text/css" href="css/cart.css">
-		<script src="js/cart.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="/static/css/cart.css">
+		<script src="/static/js/cart.js" type="text/javascript" charset="utf-8"></script>
 		<div class="cart_header">
 			<a href="index.html" class="cart_logo fl"></a>
 			<div class="cart_step step1 fr"></div>
@@ -243,7 +243,7 @@
 	                <div class="car_arrow"></div>
 	                <ul class="car_arrow_txt">
 	                   <li class="car_arrow_warn">您的购物车内没有商品，请挑选心仪的商品吧！</li>
-	                   <li><a href="index.html" target="_blank" class="go_shopping">去挑选喜欢的商品</a></li>
+	                   <li><a href="{% url 'app:index' %}" target="_blank" class="go_shopping">去挑选喜欢的商品</a></li>
 	                </ul>
             	</div>
 			</div>
@@ -254,7 +254,7 @@
 	    <link rel="stylesheet" type="text/css" href="/static/css/footer.css">
 	    <div class="footer_info">
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 0px 0px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 0px 0px;"></h4>
 	    		<ul>
 	    			<li>用户注册</li>
 	    			<li>购物流程</li>
@@ -263,7 +263,7 @@
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat -2px -34px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat -2px -34px;"></h4>
 	    		<ul>
 	    			<li>在线支付</li>
 	    			<li>货到付款</li>
@@ -272,7 +272,7 @@
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 10px -66px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 10px -66px;"></h4>
 	    		<ul>
 	    			<li>配送说明</li>
 	    			<li>运费说明</li>
@@ -281,14 +281,14 @@
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 3px -99px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 3px -99px;"></h4>
 	    		<ul>
 	    			<li>退换货政策</li>
 	    			<li>退换货流程</li>
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 2px -133px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 2px -133px;"></h4>
 	    		<ul>
 	    			<li>会员制度</li>
 	    			<li>会员积分</li>
@@ -296,7 +296,7 @@
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 1px -197px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 1px -197px;"></h4>
 	    		<ul>
 	    			<li>品牌故事</li>
 	    			<li>媒体报道</li>
@@ -368,11 +368,11 @@
 	    </script>
 	    <div class="float_box">
 	    	<ul>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -164px;"></li>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -242px;"></li>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -320px;"></li>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -399px;"></li>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -478px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -164px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -242px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -320px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -399px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -478px;"></li>
 	    	</ul>
 	    </div>
 

@@ -2,18 +2,18 @@
  #focus { position: relative; width: 100%; overflow: hidden;}
  #bigpic { height: 450px;}
  #bigpic li { position: absolute; top: 0; left: 0; }
- #smallpic { position: absolute; bottom: 10px; left: 453px;}  
+ #smallpic { position: absolute; bottom: 10px; left: 453px;}
  #smallpic li { cursor: pointer; float: left; width: 120px; height: 30px; background: white; line-height: 30px; text-align: center; font-size: 13px; margin-right: 10px;}
  /*#smallpic li:hover { background: #333333; color: white;}*/
-    
+
 #goods_classify { position: absolute; top: 192px; left: 111px; height: 450px; width: 190px; background: #E3E3E3;}
 #goods_classify div { z-index: 1000; }
 /*#goods_classify ul{ height: 450px; width: 190px; }*/
 #goods_classify ul li { position: relative; width: 164px; height: 43px; background: #E3E3E3; border-bottom:1px dashed #ccc; padding: 10px 13px;}
-#goods_classify ul li a { font-size: 12px; color: #555555;} 
-#goods_classify ul li a:hover { text-decoration: underline; } 
+#goods_classify ul li a { font-size: 12px; color: #555555;}
+#goods_classify ul li a:hover { text-decoration: underline; }
 #goods_classify ul li span { position: absolute; right: 5px; top: 15px; display: block; width: 10px; height: 10px;  background: url(../img/index_img/leftjt.png) no-repeat; }
-#goods_classify ul li h4 img { vertical-align: text-bottom; }   
+#goods_classify ul li h4 img { vertical-align: text-bottom; }
 #goods_classify ul li h4 { font-size: 14px; font-family: "微软雅黑";}
 .red { color: red !important; }
 
