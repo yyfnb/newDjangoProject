@@ -219,28 +219,36 @@
 		</div>
 	<!-- 商品分类  轮播图 -->
 	<link rel="stylesheet" type="text/css" href="/static/css/lunbo_goods.css">
+{#        <link rel="stylesheet" type="text/css" href="/static/css/swiper3.css">#}
 	<script src="/static/js/lunbo.js" type="text/javascript" charset="utf-8"></script>
+{#        <script src="/static/js/swiper3.js" type="text/javascript" charset="utf-8"></script>#}
+
     <!-- 轮播图  -->
-	<div id="focus">
-		<ul id="bigpic">
+	<div id="focus" >
+		<ul id="bigpic" >
             {% for wheel in wheels %}
-                <li>
+                <li class="swiper-slide">
                     <img src="{{ wheel.img }}" alt="">
                 </li>
             {% endfor %}
-            
-        </ul>
-
-        <ul id="smallpic">
-
-
-                <li>
-                   {{ wheel.word }}
-                </li>
-
-
 
         </ul>
+
+{#        <ul id="smallpic">#}
+{##}
+{##}
+{#                <li>#}
+{#                   {{ wheel.word }}#}
+{#                </li>#}
+{##}
+{##}
+{##}
+{#        </ul>#}
+          <!-- Add Pagination -->
+{#        <div class="swiper-pagination"></div>#}
+{#        <!-- Add Arrows -->#}
+{#        <div class="swiper-button-next"></div>#}
+{#        <div class="swiper-button-prev"></div>#}
     </div>
     <!-- 商品分类 -->
 {#    <link rel="stylesheet" type="text/css" href="/static/css/lunbo_goods.css">#}

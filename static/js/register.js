@@ -195,53 +195,53 @@ $(function(){
 	})
 	
 	
-	//随机验证码
-	function randomyzm(){
-		var arr=[];
-        for(var i=0;i<4;i++){
-            var random_01=Math.round(Math.random());//随机1,0 if语句1输出数字 0输出大写英文
-            if(random_01==1){
-                arr[i]=parseInt(Math.random()*10);//获取0-9的整数
-            }else{
-                arr[i]= String.fromCharCode(parseInt(Math.random()*26+65));//英文根据ascii码转换
-                // 用String.fromCharCode() 数字转大写字母
-            }
-        }
-//     document.write(arr.join(""));
-       $('.register_list_yzm').html( arr.join("") );
-	}
- 
-    $('.register_list_yzm').css('color',getRandomColor);
-    //随机色
-    function getRandomColor(){
-    	return "#"+("00000"+((Math.random()*16777215+0.5)>>0).toString(16)).slice(-6);
-	}
-    //点击刷新验证码
-    $('.register_list_yzm').click(function(){
-    	randomyzm();
-        $('.register_list_yzm').css('color',getRandomColor);
-//      console.log( $('.register_list_yzm').html() );
-    })
-    
-    //验证验证码是否正确
-    var d=0;
-	$(".yanzheng").blur(function(){
-		
-		if ( $(".yanzheng").val().toLowerCase()!= $('.register_list_yzm').html().toLowerCase() || $(".yanzheng").val()=="" ) {
-			d=0;
-	        $('.register_list_tishi').eq(6).css('display','block');
-	        $('.register_list_tishi').eq(6).parent().find('img').remove();
-		}else{
-			$('.register_list_tishi').eq(6).css('display','none');
-			d++;
-			if(d==1){
-				$('.register_list_tishi').eq(6).parent().append($("<img src='img/register_img/keyizhuce.gif' />"));
-			}
-			
-		}
-		
-	})
-	
+// 	//随机验证码
+// 	function randomyzm(){
+// 		var arr=[];
+//         for(var i=0;i<4;i++){
+//             var random_01=Math.round(Math.random());//随机1,0 if语句1输出数字 0输出大写英文
+//             if(random_01==1){
+//                 arr[i]=parseInt(Math.random()*10);//获取0-9的整数
+//             }else{
+//                 arr[i]= String.fromCharCode(parseInt(Math.random()*26+65));//英文根据ascii码转换
+//                 // 用String.fromCharCode() 数字转大写字母
+//             }
+//         }
+// //     document.write(arr.join(""));
+//        $('.register_list_yzm').html( arr.join("") );
+// 	}
+//
+//     $('.register_list_yzm').css('color',getRandomColor);
+//     //随机色
+//     function getRandomColor(){
+//     	return "#"+("00000"+((Math.random()*16777215+0.5)>>0).toString(16)).slice(-6);
+// 	}
+//     //点击刷新验证码
+//     $('.register_list_yzm').click(function(){
+//     	randomyzm();
+//         $('.register_list_yzm').css('color',getRandomColor);
+// //      console.log( $('.register_list_yzm').html() );
+//     })
+//
+//     //验证验证码是否正确
+//     var d=0;
+// 	$(".yanzheng").blur(function(){
+//
+// 		if ( $(".yanzheng").val().toLowerCase()!= $('.register_list_yzm').html().toLowerCase() || $(".yanzheng").val()=="" ) {
+// 			d=0;
+// 	        $('.register_list_tishi').eq(6).css('display','block');
+// 	        $('.register_list_tishi').eq(6).parent().find('img').remove();
+// 		}else{
+// 			$('.register_list_tishi').eq(6).css('display','none');
+// 			d++;
+// 			if(d==1){
+// 				$('.register_list_tishi').eq(6).parent().append($("<img src='img/register_img/keyizhuce.gif' />"));
+// 			}
+//
+// 		}
+//
+// 	})
+//
 	//点击邮箱注册
     $('.register_list_regree:eq(1)').click(function(){
     	

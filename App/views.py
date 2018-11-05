@@ -7,14 +7,21 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from App.models import User, Wheel, Hanfengshishang, f_img, Tip
 
-
+#首页
 def index(request,id=1):
+    #商品数据
     hanfengshishangs = Hanfengshishang.objects.all()
+    #女装
     hanfengnv = hanfengshishangs[0:10]
+    #男装
     hanfengnan = hanfengshishangs[5:10]
+    #童装
     hanfengtz = hanfengshishangs[10:15]
+    #副图
     fimg = f_img.objects.all()
+    #标题
     tip = Tip.objects.all()
+    #轮播图
     wheels = Wheel.objects.all()
     email = request.COOKIES.get("email")
     print(wheels,hanfengshishangs)
@@ -107,7 +114,7 @@ def login(request):
 
 
 
-
+#购物车
 def cart(request):
     email = request.COOKIES.get("email")
     data = {
@@ -117,6 +124,6 @@ def cart(request):
     }
     return render(request,'cart.html',context=data)
 
-
+#详情页
 def goodsinfo(request):
     return render(request,'goodsinfo.html')
