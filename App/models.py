@@ -25,3 +25,14 @@ class f_img(models.Model):
 class Tip(models.Model):
     H_list = models.CharField(max_length=30)
     s_cate1 = models.CharField(max_length=30)
+
+
+class Cart(models.Model):
+    # user
+    user = models.ForeignKey(User)
+    # goods
+    goods = models.ForeignKey(Hanfengshishang)
+    # number
+    number = models.IntegerField()
+    # isselect
+    isselect = models.BooleanField(default=True)
