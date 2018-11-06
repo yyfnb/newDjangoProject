@@ -945,12 +945,15 @@
 	    	</div>
 
 	    	<ul class="HSTYLE_list">
-
+{##}
+{#      数据渲染      #}
+{#      点击跳转详情      #}
+{#            #}
                     {% for foo in hanfengnv %}
                         <li>
                         <img src="{{ foo.img }}" alt="">
                         <p>￥{{ foo.price }}</p>
-                        <span>{{ foo.buy }}</span>
+                            <a href="{% url 'app:goodsinfo' foo.id  %}"><span>{{ foo.buy }}</span></a>
                          </li>
                     {% endfor %}
 
@@ -965,7 +968,7 @@
             <h1 style=" background: url(/static/img/index_img/web_index.png) no-repeat 0px -104px; ">
                 <ul> {% for foo in tip %}
                         <li>
-                                {{ foo.H_list }}
+                              {{ foo.H_list }}
                         </li>
                     {% endfor %}</ul>
 
@@ -990,12 +993,12 @@
 
 	    	<ul class="HSTYLE_list">
 
-                    {% for foo in hanfengnan %}
+                    {% for good in hanfengnan %}
                         <li>
 
-                        <img src="{{ foo.img }}" alt="">
-                        <p>￥{{ foo.price }}</p>
-                        <a href="{% url 'app:goodsinfo'  %}"><span>{{ foo.buy }}</span></a>
+                        <img src="{{ good.img }}" alt="">
+                        <p>￥{{ good.price }}</p>
+                        <a href="{% url 'app:goodsinfo' good.id  %}"><span>{{ good.buy }}</span></a>
                          </li>
                     {% endfor %}
 

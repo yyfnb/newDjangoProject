@@ -588,7 +588,14 @@
         <div class="detail_top">
         	<div class="goods_detail_left">
         		<div class="zoomPad">
-        			<div class="zoomPup"></div>
+
+{#                    商品图片#}
+{#                    #}
+{#                    #}
+                    <img src="{{ good.img }}" alt="">
+        			<div class="zoomPup">
+                    </div>
+
         		</div>
         		<div class="bigArea">
         		</div>
@@ -609,15 +616,15 @@
 
         	<div class="gooods_detail_right">
         		<div class="product_detail_info">
-        			<h1></h1>
+        			<h1>  商品名称信息  </h1>
         			<ul>
         				<li>商品货号：&nbsp;
         					<span class="code"></span>
         					&nbsp;&nbsp;&nbsp;&nbsp;售价：
-        					<del class="market_price"></del>
+        					<del class="market_price">{{ good.del_price }}</del>
         				</li>
         				<li>促  销  价：
-        					<em class="promotionPrice"></em>
+        					<em class="promotionPrice">{{ good.price }}</em>
         				</li>
         				<li>销&nbsp;&nbsp;量：&nbsp;
         					<span class="sales"></span>
@@ -659,8 +666,12 @@
         			</p>
         			<p class="GoodsSelected" style="display: none;">您未选择</p>
         			<p class="detail_btn_set">
-                        <a class="fl detail_btn buy" title="点击购买"></a>
-                		<a class="fl detail_btn addCart" title="加入购物车"></a>
+                        <a class="fl detail_btn buy" title="点击购买">点击购买</a>
+                        <a href="{% url 'app:cart' %}">
+
+                            加入购物车
+
+                        </a>
                     </p>
         		</div>
 

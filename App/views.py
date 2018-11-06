@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 from App.models import User, Wheel, Hanfengshishang, f_img, Tip
 
 #首页
-def index(request,id=1):
+def index(request):
     #商品数据
     hanfengshishangs = Hanfengshishang.objects.all()
     #女装
@@ -46,7 +46,7 @@ def register(request):
 
         email = request.POST.get('email')
         password = request.POST.get('password')
-        print(email,password)
+        # print(email,password)
 
 
         user = User()
@@ -62,10 +62,10 @@ def register(request):
 
         return redirect('app:index')
 # 密码
-def generate_password(password):
-    sha = hashlib.sha512()
-    sha.update(password.encode('utf-8'))
-    return sha.hexdigest()
+# def generate_password(password):
+#     sha = hashlib.sha512()
+#     sha.update(password.encode('utf-8'))
+#     return sha.hexdigest()
 # 登录
 def login(request):
     if request.method == "GET":
@@ -116,6 +116,9 @@ def login(request):
 
 #购物车
 def cart(request):
+
+
+
     email = request.COOKIES.get("email")
     data = {
 
@@ -125,5 +128,9 @@ def cart(request):
     return render(request,'cart.html',context=data)
 
 #详情页
-def goodsinfo(request):
-    return render(request,'goodsinfo.html')
+def goodsinfo(request,id):
+    good = Hanfengshishang.objects.get(id=id)
+
+
+    return render(request,'goodsinfo.html',context={'good':good})
+    # return  render(request,'goodsinfo.html')
