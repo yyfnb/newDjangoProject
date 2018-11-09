@@ -25,7 +25,7 @@ def index(request):
     #轮播图
     wheels = Wheel.objects.all()
     email = request.COOKIES.get("email")
-    print(wheels,hanfengshishangs)
+    # print(wheels,hanfengshishangs)
     data ={
         'wheels':wheels,
         "hanfengnv":hanfengnv,
@@ -117,7 +117,10 @@ def login(request):
 
 #购物车
 def cart(request):
+    # 获取数据
     email = request.COOKIES.get("email")
+
+
     if email:
         user = User.objects.get(email=email)
         carts = Cart.objects.filter(user=user).exclude(number=0)
@@ -129,6 +132,7 @@ def cart(request):
         }
 
 
+
         return render(request,'cart.html',context=data)
     else:
         return redirect('app:login')
@@ -136,9 +140,11 @@ def cart(request):
 #详情页
 def goodsinfo(request,id):
     good = Hanfengshishang.objects.get(id=id)
+    email = request.COOKIES.get("email")
 
 
-    return render(request,'goodsinfo.html',context={'good':good})
+
+    return render(request,'goodsinfo.html',context={'good':good,"email":email})
     # return  render(request,'goodsinfo.html')
 
 
@@ -173,5 +179,25 @@ def addcart(request):
 
 
 
-def subcart(request):
-    return None
+# def subcart(request):
+#     return None
+def delcart(request):
+    # 获取数据
+    email = request.COOKIES.get('email')
+    goodsid = request.GET.get('goodsid')
+    print(goodsid)
+    # 对应用户 和 商品
+    user = User.objects.get(email=email)
+    goods = Hanfengshishang.objects.get(pk = goodsid)
+
+    # 删减操作
+    carts = Cart.objects.filter(user=user).filter(goods=goods)
+    cart = carts.first()
+    cart.delete()
+
+    responseData = {
+        'msg': '购物车减操作成功',
+        'status': 1,
+        'number': cart.number
+    }
+    return JsonResponse(responseData)

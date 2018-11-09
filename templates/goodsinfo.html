@@ -50,10 +50,10 @@
 			</div>
 			<div id="global_right">
 				<ul>
-					<li style="width: 155px;">您好，欢迎光临韩都衣舍！</li>
-					<li><a href="login.html">登录</a></li>
-					<li><a href="register.html" style="color: red;">注册</a></li>
-					<li style="width: 40px;"><a href="cart.html">购物车</a></li>
+					<li style="width: 155px;">您好，{{ email }}欢迎光临韩都衣舍！</li>
+					<li><a href="{% url 'app:login' %}">登录</a></li>
+					<li><a href="{% url 'app:register' %}" style="color: red;">注册</a></li>
+					<li style="width: 40px;"><a href="{% url 'app:cart' %}">购物车</a></li>
 				</ul>
 			</div>
 			<div style="float: left; margin: 6px 4px 0 0; color: #DDDDDD;"> 丨 </div>

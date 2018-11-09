@@ -952,7 +952,7 @@
                     {% for foo in hanfengnv %}
                         <li>
                         <img src="{{ foo.img }}" alt="">
-                        <p>￥{{ foo.price }}</p>
+                        <p>￥{{ foo.del_price }}</p><b>折后￥{{ foo.price }}</b>
                             <a href="{% url 'app:goodsinfo' foo.id  %}"><span>{{ foo.buy }}</span></a>
                          </li>
                     {% endfor %}
