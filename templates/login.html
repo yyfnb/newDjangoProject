@@ -198,8 +198,8 @@
 			</div>
 		</div>
 	<!-- 商品分类  -->
-	<link rel="stylesheet" type="text/css" href="css/lunbo_goods.css">
-    <script src="js/goods_classify.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/lunbo_goods.css">
+    <script src="/static/js/goods_classify.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
     	$(function(){
     		$('.pullDTitle').hover(function(){
@@ -562,7 +562,7 @@
         <img style="margin: 15px 0 0 145px; width: 1100px; height: 60px;" src="{% static  'img/register_img/banner1.jpg'  %}">
         <!-- 登录 -->
         <link rel="stylesheet" type="text/css" href="/static/css/login.css">
-        <script src="js/login.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/static/js/login.js" type="text/javascript" charset="utf-8"></script>
         <div class="login">
         	<div class="login_left"><img src="{% static  'img/login_img/410-290.png'  %}"></div>
         	<div class="login_right">
@@ -570,6 +570,7 @@
         			<h1>用户登录</h1>
         			<div class="news_loginright">
         				<ul class="news_loginright_list">
+{#                            form表单#}
                             <form action="/login/" method="post">
                                 {% csrf_token %}
         					<li>
@@ -596,7 +597,7 @@
         						</span>
         					</li>
         					<li style="margin-left: 80px; height: 30px; line-height: 30px;">
-        						<a style="float: left; color: #767676; text-decoration: underline;" href="register.html">注册</a>
+        						<a style="float: left; color: #767676; text-decoration: underline;" href="{% url 'app:register' %}">注册</a>
         						<span>丨</span>
         						<a style="color: #767676; text-decoration: underline;" href="">忘记密码？</a>
         					</li>
@@ -620,10 +621,10 @@
 
 
         <!-- footer -->
-	    <link rel="stylesheet" type="text/css" href="css/footer.css">
+	    <link rel="stylesheet" type="text/css" href="/static/css/footer.css">
 	    <div class="footer_info">
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 0px 0px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 0px 0px;"></h4>
 	    		<ul>
 	    			<li>用户注册</li>
 	    			<li>购物流程</li>
@@ -632,7 +633,7 @@
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat -2px -34px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat -2px -34px;"></h4>
 	    		<ul>
 	    			<li>在线支付</li>
 	    			<li>货到付款</li>
@@ -641,7 +642,7 @@
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 10px -66px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 10px -66px;"></h4>
 	    		<ul>
 	    			<li>配送说明</li>
 	    			<li>运费说明</li>
@@ -650,14 +651,14 @@
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 3px -99px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 3px -99px;"></h4>
 	    		<ul>
 	    			<li>退换货政策</li>
 	    			<li>退换货流程</li>
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 2px -133px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 2px -133px;"></h4>
 	    		<ul>
 	    			<li>会员制度</li>
 	    			<li>会员积分</li>
@@ -665,7 +666,7 @@
 	    		</ul>
 	    	</div>
 	    	<div class="info_column">
-	    		<h4 style="background: url(img/index_img/footer01.png) no-repeat 1px -197px;"></h4>
+	    		<h4 style="background: url(/static/img/index_img/footer01.png) no-repeat 1px -197px;"></h4>
 	    		<ul>
 	    			<li>品牌故事</li>
 	    			<li>媒体报道</li>
@@ -737,11 +738,11 @@
 	    </script>
 	    <div class="float_box">
 	    	<ul>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -164px;"></li>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -242px;"></li>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -320px;"></li>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -399px;"></li>
-	    		<li style="background: url(img/index_img/float_box4.png) no-repeat 0px -478px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -164px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -242px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -320px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -399px;"></li>
+	    		<li style="background: url(/static/img/index_img/float_box4.png) no-repeat 0px -478px;"></li>
 	    	</ul>
 	    </div>
 

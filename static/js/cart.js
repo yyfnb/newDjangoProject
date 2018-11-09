@@ -197,6 +197,7 @@ $('.middle span').click(function(){
 			//删除之后重新计算商品数量和总价
 			countTotalPrice();
 			var goodsid = $(this).attr('goodsid')
+            //ajax请求 根据goodsid删除
 			$.get('/delcart/',{'goodsid':goodsid},function (response) {
 
             })

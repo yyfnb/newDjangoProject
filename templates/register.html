@@ -572,8 +572,7 @@
 
         	<div class="register_left">
         		<div class="register_left_list">
-        			已是韩都衣舍用户：
-        			<button>直接登录</button>
+        			已是韩都衣舍用户：<a href="{% url 'app:login' %}">直接登录</a>
         		</div>
         		<img src="{% static  'img/register_img/367-250.png'  %}">
         		<div class="dy">
@@ -664,6 +663,8 @@
         				</ul>
         				<!-- 邮箱注册 -->
         				<ul class="register_list" style="display: none;">
+
+                            {#                            form表单#}
                             <form action="/register/" method="post">
                                 {% csrf_token %}
         					<li>

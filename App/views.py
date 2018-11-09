@@ -88,28 +88,6 @@ def login(request):
             return response
         else:
             return HttpResponse('用户名或密码错误!')
-# def login(request):
-#     if request.method == "GET":
-#         return render(request,'login.html')
-#     elif request.method == "POST":
-#         email = request.POST.get('email')
-#         password = request.POST.get('password')
-#         try:
-#             user = User.objects.get(email=email)
-#             if user.password != generate_password(password):# 密码错误
-#                 return render(request,'index.html',context={'error':'密码错误!'})
-#             # 登录成功
-#             # 更新token
-#             else:
-#                 user.token = str(uuid.uuid5(uuid.uuid4(),'login'))
-#                 user.save()
-#         # 状态保持
-#                 request.session['token'] = user.token
-#                 return redirect('app:index')
-#         except:
-#             return render(request,'login.html',context={'error':'用户名有误，请检查后输入!'})
-
-
 
 
 
@@ -147,7 +125,7 @@ def goodsinfo(request,id):
     return render(request,'goodsinfo.html',context={'good':good,"email":email})
     # return  render(request,'goodsinfo.html')
 
-
+# 添加购物车
 def addcart(request):
     num = request.GET.get('number')
     goodsid = request.GET.get('goodsid')
@@ -158,16 +136,19 @@ def addcart(request):
         'status': 1  # 1标识添加成功，0标识添加失败，-1标识未登录
     }
     if email:
+        # 如果用户存在
         user = User.objects.get(email=email)
         goods = Hanfengshishang.objects.get(pk = goodsid)
 
         carts = Cart.objects.filter(user=user).filter(goods=goods)
+        # 如果购物车有商品，原有的基础上加
         if carts.exists():
             cart = carts.first()
             cart.number = cart.number + int(num)
             cart.save()
             responseData['number'] = cart.number
         else:
+            # 如果没有，商品数量等于添加的数量
             cart = Cart()
             cart.user = user
             cart.goods = goods
@@ -181,6 +162,7 @@ def addcart(request):
 
 # def subcart(request):
 #     return None
+# 购物车删除操作
 def delcart(request):
     # 获取数据
     email = request.COOKIES.get('email')
@@ -190,7 +172,7 @@ def delcart(request):
     user = User.objects.get(email=email)
     goods = Hanfengshishang.objects.get(pk = goodsid)
 
-    # 删减操作
+    # 删减操作，根据用户的购物车中的商品操作
     carts = Cart.objects.filter(user=user).filter(goods=goods)
     cart = carts.first()
     cart.delete()

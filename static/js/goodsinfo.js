@@ -372,6 +372,7 @@ $(function(){
 //
 // 		})
 		$('#addcart').click(function () {
+			//获取id number
 			var goodsid = $(this).attr('goodsid')
 			var number = $('#number').val()
 			var $that = $(this)

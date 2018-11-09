@@ -816,7 +816,7 @@
 	    <!-- 韩风时尚女装 -->
 	    <link rel="stylesheet" type="text/css" href="/static/css/HSTYLE.css">
 	    <script src="/static/js/HSTYLE.js" type="text/javascript" charset="utf-8"></script>
-
+{#遍历#}
 	    <div class="HSTYLE" id="HSTYLE">
 	    	<h1 style=" background: url(/static/img/index_img/web_index.png) no-repeat 0px -74px; ">
                 <ul>
@@ -948,7 +948,7 @@
 {##}
 {#      数据渲染      #}
 {#      点击跳转详情      #}
-{#            #}
+{#     遍历  传id       #}
                     {% for foo in hanfengnv %}
                         <li>
                         <img src="{{ foo.img }}" alt="">
@@ -992,7 +992,9 @@
 	    	</div>
 
 	    	<ul class="HSTYLE_list">
-
+{#      数据渲染      #}
+{#      点击跳转详情      #}
+{#     遍历  传id       #}
                     {% for good in hanfengnan %}
                         <li>
 
