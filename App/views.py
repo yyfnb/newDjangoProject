@@ -1,11 +1,12 @@
 import hashlib
 import uuid
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from App.models import User, Wheel, Hanfengshishang, f_img, Tip
+from App.models import User, Wheel, Hanfengshishang, f_img, Tip, Cart
+
 
 #首页
 def index(request):
@@ -116,16 +117,21 @@ def login(request):
 
 #购物车
 def cart(request):
-
-
-
     email = request.COOKIES.get("email")
-    data = {
+    if email:
+        user = User.objects.get(email=email)
+        carts = Cart.objects.filter(user=user).exclude(number=0)
+        data = {
 
-        'email': email
+            'email': email,
+            'carts':carts,
 
-    }
-    return render(request,'cart.html',context=data)
+        }
+
+
+        return render(request,'cart.html',context=data)
+    else:
+        return redirect('app:login')
 
 #详情页
 def goodsinfo(request,id):
@@ -134,3 +140,38 @@ def goodsinfo(request,id):
 
     return render(request,'goodsinfo.html',context={'good':good})
     # return  render(request,'goodsinfo.html')
+
+
+def addcart(request):
+    num = request.GET.get('number')
+    goodsid = request.GET.get('goodsid')
+    email = request.COOKIES.get('email')
+    print(num)
+    responseData = {
+        'msg': '添加购物车成功',
+        'status': 1  # 1标识添加成功，0标识添加失败，-1标识未登录
+    }
+    if email:
+        user = User.objects.get(email=email)
+        goods = Hanfengshishang.objects.get(pk = goodsid)
+
+        carts = Cart.objects.filter(user=user).filter(goods=goods)
+        if carts.exists():
+            cart = carts.first()
+            cart.number = cart.number + int(num)
+            cart.save()
+            responseData['number'] = cart.number
+        else:
+            cart = Cart()
+            cart.user = user
+            cart.goods = goods
+            cart.number = num
+            cart.save()
+            responseData['number'] = cart.number
+        return JsonResponse(responseData)
+
+
+
+
+def subcart(request):
+    return None

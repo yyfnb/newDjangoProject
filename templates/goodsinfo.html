@@ -654,7 +654,7 @@
         				<span class="amount-widget">
         					<span class="increase">+</span>
         					<span class="decrease">-</span>
-        					<input type="text" id="" value="1">
+        					<input type="text" id="number" value="1">
         				</span>
         				<span class="goodsInventory">
         					<font class="inventory" total="167">（库存<b></b>件）</font>
@@ -667,7 +667,7 @@
         			<p class="GoodsSelected" style="display: none;">您未选择</p>
         			<p class="detail_btn_set">
                         <a class="fl detail_btn buy" title="点击购买">点击购买</a>
-                        <a href="{% url 'app:cart' %}">
+                        <a href="{% url 'app:cart'  %}" id="addcart" goodsid="{{ good.id }}">
 
                             加入购物车
 

@@ -149,7 +149,7 @@
 			<div class="shopping_nr">
 				<div class="shopping_nr_title">
 		            <div class="shop_qx" style="width: 381px;">商品名称</div>
-		            <div class="shop_qx" style="width: 132px;">售价</div>
+		            <div class="shop_qx" style="width: 132px;">售价 </div>
 		            <div class="shop_qx" style="width: 132px;">数量</div>
 		            <div class="shop_qx" style="width: 122px;">小计</div>
 		            <div class="shop_qx" style="width: 134px;">操作</div>
@@ -158,8 +158,12 @@
 			</div>
 
 			<div id="cartGoodsList" class="shopping_nr_top">
-				<ul class="brand_cart" style="display: none;">
-					<!--<li>
+				<ul class="brand_cart" >
+                    {% for cart in carts %}
+
+
+
+					<li>
 						<h3>品牌：HSTYLE女装</h3>
             			<div class="shop_product">
                 			<div class="shop_product_pic">
@@ -172,23 +176,24 @@
             			</div>
             			<div class="shop_product_money">
             				<div class="cprice">
-            					<del>￥568.00</del><br><span>￥128 </span>
+            					<del>{{ cart.goods.del_price }}</del><br><span>{{ cart.goods.price }} </span>
             				</div>
             			</div>
             			<div class="shop_product_number">
 			                <span class="amount-widget" id="J_AmountWidget">
 			                    <span class="increase">+</span>
 			                    <span class="decrease">-</span>
-			                    <input type="text" name="goods_number" class="text" old="1" value="1" maxlength="3" title="请输入购买量">
+			                    <input type="text" name="goods_number" class="text" old="1" value="1" maxlength="3" title="请输入购买量">{{ cart.number }}
 			                </span>
             			</div>
-            			<div class="shop_product_money00">￥128.00</div>
+            			<div class="shop_product_money00">{{ cart.goods.price }}</div>
             			<div class="shop_product_close">
 			                <div class="middle">
 			                    <span> 删除</span>
 			                </div>
             			</div>
-        			</li>-->
+        			</li>
+                    {% endfor %}
 
 				</ul>
 			</div>
