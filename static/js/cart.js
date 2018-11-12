@@ -216,7 +216,7 @@ $('.middle span').click(function(){
 
 		})
 countTotalPrice()
-
+	//	zongji
 		function countTotalPrice(){
 
 			var sum = 0;
@@ -239,5 +239,17 @@ countTotalPrice()
 			})
 
 		}
+
+		$('#generateorder').click(function () {
+			$.get('/generateorder/',function (response) {
+				console.log(response)
+				if(response.status == 1){ //调到订单详情
+					window.open('/orderinfo/'+response.identifier + '/', target='_self')
+				}
+
+            })
+
+        })
+
 
 })

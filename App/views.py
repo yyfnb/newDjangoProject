@@ -1,11 +1,13 @@
 import hashlib
+import random
+import time
 import uuid
 
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from App.models import User, Wheel, Hanfengshishang, f_img, Tip, Cart
+from App.models import User, Wheel, Hanfengshishang, f_img, Tip, Cart, Order, OrderGoods
 
 
 #首页
@@ -59,9 +61,11 @@ def register(request):
         response = redirect('app:index')
 
         #保持状态
-        response.set_cookie('email',email)
+        response.set_cookie('email',user.email)
 
-        return redirect('app:index')
+        print(request.COOKIES.get("email")
+)
+        return response
 # 密码
 # def generate_password(password):
 #     sha = hashlib.sha512()
@@ -129,8 +133,10 @@ def goodsinfo(request,id):
 def addcart(request):
     num = request.GET.get('number')
     goodsid = request.GET.get('goodsid')
+    goodssize = request.GET.get('goodssize')
     email = request.COOKIES.get('email')
     print(num)
+    print(goodssize)
     responseData = {
         'msg': '添加购物车成功',
         'status': 1  # 1标识添加成功，0标识添加失败，-1标识未登录
@@ -145,6 +151,7 @@ def addcart(request):
         if carts.exists():
             cart = carts.first()
             cart.number = cart.number + int(num)
+            cart.size = goodssize
             cart.save()
             responseData['number'] = cart.number
         else:
@@ -153,6 +160,7 @@ def addcart(request):
             cart.user = user
             cart.goods = goods
             cart.number = num
+            cart.size = goodssize
             cart.save()
             responseData['number'] = cart.number
         return JsonResponse(responseData)
@@ -183,3 +191,35 @@ def delcart(request):
         'number': cart.number
     }
     return JsonResponse(responseData)
+
+
+def generateorder(request):
+    email = request.COOKIES.get('email')
+    user = User.objects.get(email=email)
+    #mk order
+    order = Order()
+    order.user = user
+    order.identifier = str(int(time.time())) + str(random.randrange(10000,100000))
+    order.save()
+
+    carts = Cart.objects.filter(user=user).filter(isselect=True)
+    for cart in carts:
+        orderGoods = OrderGoods()
+        orderGoods.order = order
+        orderGoods.goods = cart.goods
+        orderGoods.number = cart.number
+        orderGoods.save()
+
+        cart.delete()
+        responseData = {
+            'msg': '订单生成成功',
+            'status': 1,
+            'identifier': order.identifier
+        }
+    return JsonResponse(responseData)
+
+
+def orderinfo(request,identifier):
+    #一个订单 对应 多个商品
+    order = Order.objects.get(identifier=identifier)
+    return render(request,'orderinfo.html',context={'order':order})

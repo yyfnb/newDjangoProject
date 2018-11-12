@@ -71,7 +71,8 @@
 			</div>
 			<div id="global_right">
 				<ul>
-					<li style="width: 155px;">您好，{{ email }}欢迎光临韩都衣舍！</li>
+					<li style="width: 155px;">您好，{% if email %}{{ email }}
+                        {% endif %}欢迎光临韩都衣舍！</li>
 					<li><a href="{% url 'app:login' %}">登录</a></li>
 					<li><a href="{% url 'app:register' %}" style="color: red;">注册</a></li>
 					<li style="width: 40px;"><a href="{% url 'app:cart' %}">购物车</a></li>

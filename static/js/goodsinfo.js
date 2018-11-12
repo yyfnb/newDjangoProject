@@ -375,14 +375,50 @@ $(function(){
 			//获取id number
 			var goodsid = $(this).attr('goodsid')
 			var number = $('#number').val()
+			var goodssize = $('.selectli').html()
 			var $that = $(this)
 
 			// 发起ajax请求
-			$.get('/addcart/',{'goodsid':goodsid,'number':number},function (response) {
+			$.get('/addcart/',{'goodsid':goodsid,'number':number,'goodssize':goodssize},function (response) {
 
 
             })
 
         })
+
+		// sizebt1 = false
+		// $('#sizebt1').click(function () {
+		//
+		//
+        // })
+		//
+		// function sizebt1show() {
+		//
+		// 	sizebt1 = false
+		// 	$('#sizebt1').addClass('ii')
+		//
+        // }
+//				尺码
+
+		$('.sizili').click(function () {
+			$('.sizili').removeClass('selectli')
+			$(this).addClass('selectli')
+			console.log('1')
+
+
+
+
+        })
+
+		//
+		// $('.product_detail_info .size #sizebt2').click(function () {
+		// 	$('.size i').hide()
+		// 	console.log('2')
+		// 	var goodssize = $(this).html()
+		//
+		// 	$('.ii2').show();
+		//
+		//
+        // })
 	
 })

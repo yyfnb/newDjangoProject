@@ -18,4 +18,7 @@ urlpatterns = [
     url(r'^addcart/$', views.addcart, name='addcart'),
     #     购物车减
     url(r'^delcart/$',views.delcart,name='delcart'),
+    url(r'^generateorder/$', views.generateorder, name='generateorder'),    # 下单
+    url(r'^orderinfo/(\d+)/$', views.orderinfo, name='orderinfo'), #订单信息
+
 ]
